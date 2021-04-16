@@ -547,7 +547,17 @@ public class WebAPI {
     }
 
     public static void clearInput(String locator) {
-        driver.findElement(By.cssSelector(locator)).clear();
+        try {
+            driver.findElement(By.cssSelector(locator)).clear();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("\n*** First Attempt Failed - Trying Again ***");
+         try {
+             driver.findElement(By.xpath(locator)).clear();
+         } catch (Exception e1){
+             e1.printStackTrace();
+         }
+        }
     }
 
     public void keysInput(String locator) {

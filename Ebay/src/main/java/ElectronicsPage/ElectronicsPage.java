@@ -1,11 +1,17 @@
 package ElectronicsPage;
 
+import ElectronicsPage.EbayDataDriver.DataSource;
 import common.WebAPI;
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.awt.*;
+import java.util.List;
 
 import static ElectronicsPage.ElectronicsLocators.*;
 
@@ -72,7 +78,77 @@ public class ElectronicsPage extends WebAPI {
      * Search functionality Scenario #2
       */
 
-    public void selectSearchButton(){
+    public void selectSearchButton() throws InterruptedException {
         click(WEB_ELEMENT_BUTTON_SEARCH);
+    }
+
+    /**
+     * Search functionality #3
+     */
+
+    public void verifySearchBoxIsDisplayed(String exp){ String expected = exp;
+        boolean actual = driver.findElement(By.xpath(WEB_ELEMENT_SEARCH_LOCATOR)).isDisplayed();
+        Assert.assertTrue(exp.equalsIgnoreCase(String.valueOf(actual))); }
+
+    /**
+     * Search functionality #4
+      */
+
+    public void verifySearchBoxIsEnabled(String exp){ String expected = exp;
+        boolean actual = driver.findElement(By.xpath(WEB_ELEMENT_SEARCH_LOCATOR)).isEnabled();
+        Assert.assertTrue(exp.equalsIgnoreCase(String.valueOf(actual))); }
+
+    /**
+     * Search functionality #5
+      */
+
+    public void verifySearchBoxIsNotSelected(String exp){
+        String expected = exp;
+        boolean actual = driver.findElement(By.xpath(WEB_ELEMENT_SEARCH_LOCATOR)).isSelected();
+        Assert.assertTrue(exp.equalsIgnoreCase(String.valueOf(actual)));
+    }
+
+    /**
+     * Search functionality #6
+     */
+
+    public void sendKeysUsingMYSQLDB() throws Exception {
+        DataSource.insertDataIntoDB();
+        List<String> elementFromDatabase = DataSource.getItemsListFromDB();
+        String username = elementFromDatabase.get(2);
+        typeOnElementNEnter(WEB_ELEMENT_SEARCH_LOCATOR,username);
+    }
+
+    /**
+     * Search functionality #7
+     */
+
+    public void getPageTitle(String exp){
+        assertEqualsGetTitle(exp);
+    }
+
+    /**
+     * Search functionality #8
+     */
+
+    public void clearSearchBox(){
+        clearInput(WEB_ELEMENT_SEARCH_LOCATOR);
+    }
+
+    /**
+     * Search functionality #9
+     */
+
+    public void selectDropDown(){
+        find(WEB_ELEMENT_LINK_DROP_DOWN);
+        waitTimeExplicit(WEB_ELEMENT_LINK_DROP_DOWN);
+        clickByXNCssUsingJavaScript(WEB_ELEMENT_LINK_DROP_DOWN); }
+
+    public void hoverOverComputersAndTablets(){
+        basicHoverUsingXpath(WEB_ELEMENT_SELECT_DROP_DOWN); }
+
+    public void selectComputersAndTablets(){
+        find(WEB_ELEMENT_SELECT_DROP_DOWN);
+        clickByXNCssUsingJavaScript(WEB_ELEMENT_SELECT_DROP_DOWN);
     }
 }
