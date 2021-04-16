@@ -24,7 +24,7 @@ import org.junit.runner.RunWith;
         // to check the mapping is proper between feature file and step definition file
         dryRun = false,
         publish = true,
-        tags = "(@smokeTest, @Pritam) and (not @pending)"
+        tags = "(@smokeTest, @pizza) and (not @pending, @burger)"
 //         tags = "(@smokeTest or @RegressionTest or @IntegrationTest ) and (not @pending)"
 
 
