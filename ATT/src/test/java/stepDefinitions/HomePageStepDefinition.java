@@ -53,22 +53,6 @@ public class HomePageStepDefinition  extends WebAPI {
     public void i_type(String productName) {
         homePage.enterProductName(productName);
     }
-    @When("I click on search Button")
-    public void i_click_on_search_button() {
-        homePage.clickOnSearchButton();
-    }
-    @And("I click on T-Mobile FamilyWhere app")
-    public void iClickOnTMobileFamilyWhereApp() {
-        homePage.clickOnTMobileFamilyWhere();
-    }
-    @Then("I should see {string} is properly appeared")
-    public void i_should_see_is_properly_appeared(String expectedText) {
-        homePage.verifySearchResult(expectedText);
-    }
-    @Then("I should not see {string} is appeared")
-    public void i_should_not_see_is_appeared(String expectedText) {
-        homePage.verifySearchResultNotMatch(expectedText);
-    }
     @And("I verify {string}  in product title")
     public void iVerifyInProductTitle(String expectedText) {
         homePage.verifyPageTitle(expectedText);

@@ -10,18 +10,87 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>Ebay</artifactId>
+
+
     <dependencies>
         <dependency>
             <groupId>com.qaautomationlab</groupId>
             <artifactId>Generic</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
 
-    <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-    </properties>
+
+    <build>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <!-- TestNG http Error Handle purpose -->
+                    <systemPropertyVariables>
+                        <testng.dtd.http>true</testng.dtd.http>
+                    </systemPropertyVariables>
+                    <!-- Test Fail will be Ignored -->
+                    <testFailureIgnore>true</testFailureIgnore>
+                    <!--Test Runner Files-->
+                    <includes>
+                        <!--                            <include>**/TMobileTestRunner.java</include>-->
+                    </includes>
+                    <suiteXmlFiles>
+                        <!--                            <suiteXmlFile>target/test-classes/TMobileTestRunner.xml</suiteXmlFile>-->
+                        <!--                        <suiteXmlFile>target/test-classes/AirCanadaTestRunner.xml</suiteXmlFile>-->
+                        <!--                        <suiteXmlFile>target/test-classes/SkyScannerTestRunner.xml</suiteXmlFile>-->
+                        <!--                        <suiteXmlFile>target/test-classes/ModernHealthCareTestRunner.xml</suiteXmlFile>-->
+
+                    </suiteXmlFiles>
+
+
+                </configuration>
+            </plugin>
+
+
+            <plugin>
+                <groupId>net.masterthought</groupId>
+                <artifactId>maven-cucumber-reporting</artifactId>
+                <executions>
+                    <execution>
+                        <id>execution</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <projectName>Web Automation Cucumber Reports</projectName>
+                            <outputDirectory>target/cucumber-reports/cucumber-report-html</outputDirectory>
+                            <buildNumber>1</buildNumber>
+                            <skip>false</skip>
+                            <inputDirectory>${project.build.directory}/cucumber-reports</inputDirectory>
+                            <jsonFiles>
+                                <param>**/*.json</param>
+                            </jsonFiles>
+                            <classificationDirectory>${project.build.directory}/cucumber-reports</classificationDirectory>
+                            <checkBuildResult>false</checkBuildResult>
+                        </configuration>
+                    </execution>
+                </executions>
+
+            </plugin>
+        </plugins>
+
+    </build>
+
+
+
 
 </project>

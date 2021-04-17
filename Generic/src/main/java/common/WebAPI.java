@@ -212,7 +212,7 @@ public class WebAPI {
     }
 
     public static WebDriver getCloudDriver(String envName, String envUsername, String envAccessKey, String os, String os_version, String browserName,
-                                    String browserVersion) throws IOException {
+                                           String browserVersion) throws IOException {
         DesiredCapabilities cap = new DesiredCapabilities();
         cap.setCapability("browser", browserName);
         cap.setCapability("browser_version", browserVersion);
@@ -552,11 +552,11 @@ public class WebAPI {
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("\n*** First Attempt Failed - Trying Again ***");
-         try {
-             driver.findElement(By.xpath(locator)).clear();
-         } catch (Exception e1){
-             e1.printStackTrace();
-         }
+            try {
+                driver.findElement(By.xpath(locator)).clear();
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
         }
     }
 
@@ -608,7 +608,7 @@ public class WebAPI {
         //Step:2-->Iterate linksList: exclude all links/images which does not have any href attribute
         List<WebElement> activeLinks = new ArrayList<WebElement>();
         for (int i = 0; i < linksList.size(); i++) {
-           // System.out.println(linksList.get(i).getAttribute("href"));
+            // System.out.println(linksList.get(i).getAttribute("href"));
             if (linksList.get(i).getAttribute("href") != null && (!linksList.get(i).getAttribute("href").contains("javascript") && (!linksList.get(i).getAttribute("href").contains("mailto")))) {
                 activeLinks.add(linksList.get(i));
             }
@@ -691,11 +691,15 @@ public class WebAPI {
             String act = driver.findElement(By.xpath(loc)).getText();
             String exp = expValue;
             Assert.assertEquals(act, exp);
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-            String act = driver.findElement(By.cssSelector(loc)).getText();
-            String exp = expValue;
-            Assert.assertEquals(act, exp);
+            try {
+                String act = driver.findElement(By.cssSelector(loc)).getText();
+                String exp = expValue;
+                Assert.assertEquals(act, exp);
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
         }
     }
 
@@ -895,13 +899,13 @@ public class WebAPI {
             js.executeScript("arguments[0].scrollIntoView();", Element);
         } catch (Exception e) {
             e.printStackTrace();
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                //Find element by link text and store in variable "Element"
-                WebElement Element = driver.findElement(By.cssSelector(loc));
-                //This will scroll the page till the element is found
-                js.executeScript("arguments[0].scrollIntoView();", Element);
-            }
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            //Find element by link text and store in variable "Element"
+            WebElement Element = driver.findElement(By.cssSelector(loc));
+            //This will scroll the page till the element is found
+            js.executeScript("arguments[0].scrollIntoView();", Element);
         }
+    }
 
     public static void scrollToBottomOfPage() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -909,7 +913,7 @@ public class WebAPI {
         js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
     }
 
-    public static void WebDriverWaitUntilVisibility(int seconds,WebElement element) {
+    public static void WebDriverWaitUntilVisibility(int seconds, WebElement element) {
         WebDriverWait wait = new WebDriverWait(driver, seconds);
         wait.until(ExpectedConditions.visibilityOf(element));
 
@@ -1268,6 +1272,7 @@ public class WebAPI {
     public static void openNewWindow(String Url) {
         ChromeDriver driver = new ChromeDriver();
         driver.get(Url);
+        driver.manage().window().maximize();
     }
 
     public static void assertEqualsGetCurrentUrl(String exp) {
@@ -1372,13 +1377,13 @@ public class WebAPI {
         }
     }
 
-    public static void softAssertAssertEqualsGetText(String actual, String expected){
+    public static void softAssertAssertEqualsGetText(String actual, String expected) {
         try {
             String exp = expected;
             String act = driver.findElement(By.xpath(actual)).getText();
             softAssert.assertEquals(act, exp);
             softAssert.assertAll();
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             System.out.println("\n*** First Attempt Failed - Trying Again ***");
             String exp = expected;
@@ -1388,12 +1393,12 @@ public class WebAPI {
         }
     }
 
-    public static void softAssertAssertTrueIsDisplayed(String actual){
+    public static void softAssertAssertTrueIsDisplayed(String actual) {
         try {
             boolean act = driver.findElement(By.xpath(actual)).isDisplayed();
             softAssert.assertTrue(act, "\n*** Test Failed - Try Again ***");
             softAssert.assertAll();
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             System.out.println("\n*** First Attempt Failed - Trying Again ***");
             boolean act = driver.findElement(By.cssSelector(actual)).isDisplayed();
@@ -1401,6 +1406,13 @@ public class WebAPI {
             softAssert.assertAll();
         }
     }
+    public static void softAssertAssertEqualsGetTitle(String expected){
+        String exp = expected;
+        String act = driver.getTitle();
+        softAssert.assertEquals(act,exp);
+        softAssert.assertAll();
+
+}
 
     public void refresh() throws AWTException, InterruptedException {
         robot.keyPress(KeyEvent.VK_F5);
