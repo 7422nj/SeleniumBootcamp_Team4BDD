@@ -58,11 +58,6 @@ public class SignInStepDefinition extends WebAPI {
         help.verifyHeaderSignUpHere(expected);
     }
 
-    @And("I click on create an account button")
-    public void iClickOnCreateAnAccountButton() {
-        help.selectCreateAccountButton();
-    }
-
     @And("I should see {string} as sign in header")
     public void iShouldSeeAsSignInHeader(String expected) {
         help.verifySignInHeader(expected);
@@ -71,6 +66,71 @@ public class SignInStepDefinition extends WebAPI {
     @Then("I verify {string} as macys sign up and sign in page title")
     public void iVerifyAsMacysSignUpAndSignInPageTitle(String expected) {
         help.getPageTitle(expected);
+    }
+
+    /**
+     * Scenario #2
+     */
+
+    @And("I enter my email address")
+    public void iEnterMyEmailAddress() throws Exception {
+        help.enterEmail();
+    }
+
+    @And("I enter my password")
+    public void iEnterMyPassword() throws Exception {
+        help.enterPassword();
+    }
+
+    @And("I click sign in button")
+    public void iClickSignInButton() throws InterruptedException {
+        help.selectSignInButton();
+    }
+
+    @Then("I should see {string} as page header")
+    public void iShouldSeeAsPageHeader(String expected) {
+        help.verifyAccessDenied(expected);
+    }
+
+    /**
+     * Scenario #3
+     * @throws Exception
+     */
+    @And("i enter invalid password")
+    public void iEnterInvalidPassword() throws Exception {
+        help.enterInvalidPassword();
+    }
+
+    @Then("I should see {string} as password error message")
+    public void iShouldSeeAsPasswordErrorMessage(String expected) {
+
+    }
+
+    /**
+     * Scenario #4
+     * @throws Exception
+     */
+
+    @And("I enter invalid email address")
+    public void iEnterInvalidEmailAddress() throws Exception {
+        help.enterInvalidEmail();
+    }
+
+    @Then("I should see {string} as no password entered error code")
+    public void iShouldSeeAsNoPasswordEnteredErrorCode(String expected) {
+        help.verifyNoPasswordHeader(expected);
+
+    }
+
+    @Then("I should see {string} as no email entered error code")
+    public void iShouldSeeAsNoEmailEnteredErrorCode(String expected) {
+        help.verifyNoEmailHeader(expected);
+    }
+
+    @Then("I should see {string} for no email and {string} for no password")
+    public void iShouldSeeForNoEmailAndForNoPassword(String expected1, String expected2) {
+            help.verifyNoEmailHeader(expected1);
+            help.verifyNoPasswordHeader(expected2);
     }
 }
 

@@ -150,7 +150,7 @@ public class SupportPage extends WebAPI {
     }
     public void hoverOverBillsSupportDropDown(){ basicHoverUsingXpath(WEB_ELEMENT_RESULT_BILLS);
     }
-    public void verifyBillsResultsHeader(String exp1,String exp2){
+    public void verifyBillsResultsHeader(String exp1,String exp2 ){
         assertEqualGetText(WEB_ELEMENT_HEADER_RESULTS,exp1);
         assertEqualGetText(WEB_ELEMENT_HEADER_RESULTS,exp2);
 

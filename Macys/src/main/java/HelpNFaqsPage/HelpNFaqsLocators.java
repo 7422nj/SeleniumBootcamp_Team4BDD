@@ -14,8 +14,20 @@ public class HelpNFaqsLocators {
 
 
 
-  //Create Account
-  public static final String WEB_ELEMENT_BUTTON_CREATE_ACCOUNT = "//a[@id='standard-sign-up']";
+  //Sign in using valid credentials
+  public static final String WEB_ELEMENT_INPUT_EMAIL = "//input[@id='email']";
+  public static final String WEB_ELEMENT_INPUT_PASSWORD = "//input[@id='pw-input']";
+  public static final String WEB_ELEMENT_BUTTON_SIGN_IN = "//input[@id='sign-in']";
+  public static final String WEB_ELEMENT_VERIFY_ACCESS_DENIED = "//h1[.='Access Denied']";
+
+  //Sign in using valid email but invalid password
+  public static final String WEB_ELEMENT_PASS_ERROR = "//p[@class='notification-body']";
+
+  //Sign in with email and no password
+  public static final String WEB_ELEMENT_NO_PASSWORD = "//small[@id='pw-input-error']";
+
+  //Sign in with password but no email
+  public static final String WEB_ELEMENT_NO_EMAIL = "//small[@id='email-error']";
 
 
 
