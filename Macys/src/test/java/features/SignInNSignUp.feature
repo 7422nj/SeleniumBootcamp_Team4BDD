@@ -25,7 +25,7 @@ Feature: Macys Sign In/Sign Up Functionalities
     And I click sign in button
     Then I should see "Access Denied" as page header
 
- #Scenario 3
+    #Scenario 3
   @burger
   Scenario: Sign in with valid email and invalid password
     When I hover over sign in drop down
@@ -36,7 +36,7 @@ Feature: Macys Sign In/Sign Up Functionalities
     And I click sign in button
     Then I should see "Your email address or password is incorrect. Forgot your password?" as password error message
 
- #Scenario 4
+    #Scenario 4
   @burger
   Scenario: Sign in with invalid email and valid password
     When I hover over sign in drop down

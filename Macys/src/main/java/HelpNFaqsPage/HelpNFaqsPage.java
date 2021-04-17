@@ -127,7 +127,51 @@ public class HelpNFaqsPage extends WebAPI {
         softAssertAssertEqualsGetTitle(expected);
     }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 
+   /*
+   Search Bar Functionalities
+    */
+
+
+    /**
+     * Scenario #1
+     */
+
+    public void selectSearchField(){ click(WEB_ELEMENT_SEARCH_BAR); }
+
+    public void sendKeysToSearchField() throws Exception {
+        DataSource.insertDataIntoDB();
+        List<String> elementFromDatabase = DataSource.getItemsListFromDB();
+        String returnItem = elementFromDatabase.get(6);
+        typeOnElement(WEB_ELEMENT_SEARCH_BAR,returnItem); }
+
+    public void verifyTextInSearchField(String expected) throws InterruptedException {
+        assertEqualsGetAttribute(expected,WEB_ELEMENT_SEARCH_BAR,"value");
+    }
+
+    /**
+     * Scenario #2
+     */
+
+    public void selectSearchButton(){ click(WEB_ELEMENT_BUTTON_SEARCH); }
+
+    public void verifyReturnResult(String expected) throws InterruptedException { assertEqualsGetAttribute(expected,WEB_ELEMENT_VERIFY_RETURN_SEARCH,"value"); }
+
+    public void sendInvalidKeysToSearchField() throws Exception {
+        DataSource.insertDataIntoDB();
+        List<String> elementFromDatabase = DataSource.getItemsListFromDB();
+        String invalidKeys = elementFromDatabase.get(1);
+        typeOnElement(WEB_ELEMENT_SEARCH_BAR,invalidKeys); }
+
+    /**
+     * Scenario #3
+      */
+
+    public void verifyNoResultsHeader(String expected){
+        softAssertAssertEqualsGetText(WEB_ELEMENT_NO_RESULTS_HEADER,expected);
+
+    }
 
 
 

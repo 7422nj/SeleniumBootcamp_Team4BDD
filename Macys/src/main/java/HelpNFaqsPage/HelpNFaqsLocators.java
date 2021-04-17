@@ -32,6 +32,19 @@ public class HelpNFaqsLocators {
   //Navigate back to help & faqs page
   public static final  String WEB_ELEMENT_HELP_HEADER = "//strong[.='How Can We Help?']";
 
+  /**
+   * Search Bar Functionalities
+   */
+
+  //Send keys to search field
+  public static final String WEB_ELEMENT_SEARCH_BAR = "//input[@class='rn_SearchField']";
+
+  //Sends keys and search for results
+  public static final String WEB_ELEMENT_BUTTON_SEARCH = "//div[@class='rn_CustomSimpleSearch rn_SimpleSearch']//button[1]";
+  public static final String WEB_ELEMENT_VERIFY_RETURN_SEARCH = "//button[@class='primaryBlack']";
+
+  //Send invalid keys and search for results
+  public static final String WEB_ELEMENT_NO_RESULTS_HEADER = "//div[@class='still-looking-for-help']";
 
 
 

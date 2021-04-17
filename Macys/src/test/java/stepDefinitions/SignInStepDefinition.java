@@ -42,110 +42,58 @@ public class SignInStepDefinition extends WebAPI {
      * Scenario #1
      */
 
-    @When("I hover over sign in drop down")
-    public void iHoverOverSignInDropDown() {
+    @When("I hover over sign in drop down") public void iHoverOverSignInDropDown() {
         help.hoverOverSignInDropDown();
     }
 
+    @And("I click on drop down option Sign In") public void iClickOnDropDownOptionSignIn() { help.selectSignInFromDropDown(); }
 
-    @And("I click on drop down option Sign In")
-    public void iClickOnDropDownOptionSignIn() {
-        help.selectSignInFromDropDown();
-    }
+    @And("I should see {string} as sign up header") public void iShouldSeeAsSignUpHeader(String expected) { help.verifyHeaderSignUpHere(expected); }
 
-    @And("I should see {string} as sign up header")
-    public void iShouldSeeAsSignUpHeader(String expected) {
-        help.verifyHeaderSignUpHere(expected);
-    }
+    @And("I should see {string} as sign in header") public void iShouldSeeAsSignInHeader(String expected) { help.verifySignInHeader(expected); }
 
-    @And("I should see {string} as sign in header")
-    public void iShouldSeeAsSignInHeader(String expected) {
-        help.verifySignInHeader(expected);
-    }
-
-    @Then("I verify {string} as macys sign up and sign in page title")
-    public void iVerifyAsMacysSignUpAndSignInPageTitle(String expected) {
-        help.getPageTitle(expected);
-    }
+    @Then("I verify {string} as macys sign up and sign in page title") public void iVerifyAsMacysSignUpAndSignInPageTitle(String expected) { help.getPageTitle(expected); }
 
     /**
      * Scenario #2
      */
 
-    @And("I enter my email address")
-    public void iEnterMyEmailAddress() throws Exception {
-        help.enterEmail();
-    }
+    @And("I enter my email address") public void iEnterMyEmailAddress() throws Exception { help.enterEmail(); }
 
-    @And("I enter my password")
-    public void iEnterMyPassword() throws Exception {
-        help.enterPassword();
-    }
+    @And("I enter my password") public void iEnterMyPassword() throws Exception { help.enterPassword(); }
 
-    @And("I click sign in button")
-    public void iClickSignInButton() throws InterruptedException {
-        help.selectSignInButton();
-    }
+    @And("I click sign in button") public void iClickSignInButton() throws InterruptedException { help.selectSignInButton(); }
 
-    @Then("I should see {string} as page header")
-    public void iShouldSeeAsPageHeader(String expected) {
-        help.verifyAccessDenied(expected);
-    }
+    @Then("I should see {string} as page header") public void iShouldSeeAsPageHeader(String expected) { help.verifyAccessDenied(expected); }
 
     /**
      * Scenario #3
      * @throws Exception
      */
-    @And("i enter invalid password")
-    public void iEnterInvalidPassword() throws Exception {
-        help.enterInvalidPassword();
-    }
 
-    @Then("I should see {string} as password error message")
-    public void iShouldSeeAsPasswordErrorMessage(String expected) {
+    @And("i enter invalid password") public void iEnterInvalidPassword() throws Exception { help.enterInvalidPassword(); }
 
-    }
+    @Then("I should see {string} as password error message") public void iShouldSeeAsPasswordErrorMessage(String expected) { }
 
     /**
      * Scenario #4
      * @throws Exception
      */
 
-    @And("I enter invalid email address")
-    public void iEnterInvalidEmailAddress() throws Exception {
-        help.enterInvalidEmail();
-    }
+    @And("I enter invalid email address") public void iEnterInvalidEmailAddress() throws Exception { help.enterInvalidEmail(); }
 
-    @Then("I should see {string} as no password entered error code")
-    public void iShouldSeeAsNoPasswordEnteredErrorCode(String expected) {
-        help.verifyNoPasswordHeader(expected);
+    @Then("I should see {string} as no password entered error code") public void iShouldSeeAsNoPasswordEnteredErrorCode(String expected) { help.verifyNoPasswordHeader(expected); }
 
-    }
+    @Then("I should see {string} as no email entered error code") public void iShouldSeeAsNoEmailEnteredErrorCode(String expected) { help.verifyNoEmailHeader(expected); }
 
-    @Then("I should see {string} as no email entered error code")
-    public void iShouldSeeAsNoEmailEnteredErrorCode(String expected) {
-        help.verifyNoEmailHeader(expected);
-    }
-
-    @Then("I should see {string} for no email and {string} for no password")
-    public void iShouldSeeForNoEmailAndForNoPassword(String expected1, String expected2) {
+    @Then("I should see {string} for no email and {string} for no password") public void iShouldSeeForNoEmailAndForNoPassword(String expected1, String expected2) {
             help.verifyNoEmailHeader(expected1);
-            help.verifyNoPasswordHeader(expected2);
-    }
+            help.verifyNoPasswordHeader(expected2); }
 
-    @And("I navigate back to previous page")
-    public void iNavigateBackToPreviousPage() {
-            help.navigateBackToHelpNFaqsPage();
-    }
+    @And("I navigate back to previous page") public void iNavigateBackToPreviousPage() { help.navigateBackToHelpNFaqsPage(); }
 
-    @And("I should see {string} as help & faqs page header")
-    public void iShouldSeeAsHelpFaqsPageHeader(String expected) {
-           help.verifyHelpNFaqsPageHeader(expected);
-    }
+    @And("I should see {string} as help & faqs page header") public void iShouldSeeAsHelpFaqsPageHeader(String expected) { help.verifyHelpNFaqsPageHeader(expected); }
 
-    @Then("I should see {string} as page title")
-    public void iShouldSeeAsPageTitle(String expected) {
-         help.verifyPageTitle(expected);
-    }
+    @Then("I should see {string} as page title") public void iShouldSeeAsPageTitle(String expected) { help.verifyPageTitle(expected); }
 }
 
