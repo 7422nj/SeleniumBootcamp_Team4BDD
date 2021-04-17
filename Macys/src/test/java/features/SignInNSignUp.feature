@@ -76,6 +76,15 @@ Feature: Macys Sign In/Sign Up Functionalities
     And I click sign in button
     Then I should see "Please enter your email address" for no email and "Please enter your password" for no password
 
-
-
+    #Scenario 8
+  @burger
+  Scenario: Navigate back to Help & FAQS page
+    When I hover over sign in drop down
+    And I click on drop down option Sign In
+    And I should see "Returning customer" as sign in header
+    And I should see "No account yet?" as sign up header
+    And I verify "Sign In - Macy's" as macys sign up and sign in page title
+    And I navigate back to previous page
+    And I should see "How Can We Help?" as help & faqs page header
+    Then I should see "Macy's Customer Service Site" as page title
 

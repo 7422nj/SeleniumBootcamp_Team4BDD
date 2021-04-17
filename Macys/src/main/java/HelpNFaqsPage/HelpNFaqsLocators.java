@@ -29,6 +29,9 @@ public class HelpNFaqsLocators {
   //Sign in with password but no email
   public static final String WEB_ELEMENT_NO_EMAIL = "//small[@id='email-error']";
 
+  //Navigate back to help & faqs page
+  public static final  String WEB_ELEMENT_HELP_HEADER = "//strong[.='How Can We Help?']";
+
 
 
 

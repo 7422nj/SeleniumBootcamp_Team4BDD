@@ -51,7 +51,6 @@ public class HelpNFaqsPage extends WebAPI {
         List<String> elementFromDatabase = DataSource.getItemsListFromDB();
         String email = elementFromDatabase.get(0);
         typeOnElement(WEB_ELEMENT_INPUT_EMAIL,email);
-
     }
 
     public void enterPassword() throws Exception {
@@ -110,6 +109,22 @@ public class HelpNFaqsPage extends WebAPI {
 
     public void verifyNoEmailHeader(String expected){
         softAssertAssertEqualsGetText(WEB_ELEMENT_NO_EMAIL,expected);
+    }
+
+    /**
+     * Scenario #8
+     */
+
+    public void navigateBackToHelpNFaqsPage(){
+        navigateBack();
+    }
+
+    public void verifyHelpNFaqsPageHeader(String expected){
+        softAssertAssertEqualsGetText(WEB_ELEMENT_HELP_HEADER,expected);
+    }
+
+    public void verifyPageTitle(String expected){
+        softAssertAssertEqualsGetTitle(expected);
     }
 
 

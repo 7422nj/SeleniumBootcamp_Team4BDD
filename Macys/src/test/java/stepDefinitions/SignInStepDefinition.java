@@ -132,5 +132,20 @@ public class SignInStepDefinition extends WebAPI {
             help.verifyNoEmailHeader(expected1);
             help.verifyNoPasswordHeader(expected2);
     }
+
+    @And("I navigate back to previous page")
+    public void iNavigateBackToPreviousPage() {
+            help.navigateBackToHelpNFaqsPage();
+    }
+
+    @And("I should see {string} as help & faqs page header")
+    public void iShouldSeeAsHelpFaqsPageHeader(String expected) {
+           help.verifyHelpNFaqsPageHeader(expected);
+    }
+
+    @Then("I should see {string} as page title")
+    public void iShouldSeeAsPageTitle(String expected) {
+         help.verifyPageTitle(expected);
+    }
 }
 
