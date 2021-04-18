@@ -28,6 +28,10 @@ public class HelpNFaqsPage extends WebAPI {
 
     ////////////////////////////////////////////////////////////////////
 
+    /*
+    Sign in Functionalities
+     */
+
     /**
      * Scenario #1
      */
@@ -99,9 +103,7 @@ public class HelpNFaqsPage extends WebAPI {
      * Scenario #5
      */
 
-    public void verifyNoPasswordHeader(String expected){
-        softAssertAssertEqualsGetText(WEB_ELEMENT_NO_PASSWORD,expected);
-    }
+    public void verifyNoPasswordHeader(String expected){ softAssertAssertEqualsGetText(WEB_ELEMENT_NO_PASSWORD,expected); }
 
     /**
      * Scenario #6
@@ -119,9 +121,7 @@ public class HelpNFaqsPage extends WebAPI {
         navigateBack();
     }
 
-    public void verifyHelpNFaqsPageHeader(String expected){
-        softAssertAssertEqualsGetText(WEB_ELEMENT_HELP_HEADER,expected);
-    }
+    public void verifyHelpNFaqsPageHeader(String expected){ softAssertAssertEqualsGetText(WEB_ELEMENT_HELP_HEADER,expected); }
 
     public void verifyPageTitle(String expected){
         softAssertAssertEqualsGetTitle(expected);
@@ -146,9 +146,7 @@ public class HelpNFaqsPage extends WebAPI {
         String returnItem = elementFromDatabase.get(6);
         typeOnElement(WEB_ELEMENT_SEARCH_BAR,returnItem); }
 
-    public void verifyTextInSearchField(String expected) throws InterruptedException {
-        assertEqualsGetAttribute(expected,WEB_ELEMENT_SEARCH_BAR,"value");
-    }
+    public void verifyTextInSearchField(String expected) throws InterruptedException { assertEqualsGetAttribute(expected,WEB_ELEMENT_SEARCH_BAR,"value"); }
 
     /**
      * Scenario #2
@@ -168,10 +166,7 @@ public class HelpNFaqsPage extends WebAPI {
      * Scenario #3
       */
 
-    public void verifyNoResultsHeader(String expected){
-        softAssertAssertEqualsGetText(WEB_ELEMENT_NO_RESULTS_HEADER,expected);
-
-    }
+    public void verifyNoResultsHeader(String expected){ softAssertAssertEqualsGetText(WEB_ELEMENT_NO_RESULTS_HEADER,expected); }
 
 
 

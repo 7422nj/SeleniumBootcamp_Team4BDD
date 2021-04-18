@@ -1450,6 +1450,11 @@ public class WebAPI {
         WebDriverWait wait = new WebDriverWait(driver,seconds);
         wait.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath(main), text));
     }
+
+    public static void scrollToElementUsingActions(WebElement ele){
+        Actions action = new Actions(driver);
+        action.keyDown(ele,Keys.CONTROL).perform();
+    }
 }
 
 
