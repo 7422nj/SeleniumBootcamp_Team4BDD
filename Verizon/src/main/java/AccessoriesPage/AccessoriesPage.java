@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.util.List;
 
 import static AccessoriesPage.AccessoriesLocators.*;
@@ -15,7 +16,7 @@ import static AccessoriesPage.AccessoriesLocators.*;
 public class AccessoriesPage extends WebAPI {
 
     ////////////////////////////////////////////////////////////////////////
-    public AccessoriesPage() { PageFactory.initElements(driver,this); }
+    public AccessoriesPage() { PageFactory.initElements(driver, this); }
     ///////////////////////////////////////////////////////////////////////
 
     //////////////////////////////////////////////////////////////////////
@@ -32,7 +33,7 @@ public class AccessoriesPage extends WebAPI {
 
     ///////////////////////////////////////////////////////////////////////
 
-    @FindBy (xpath = WEB_ELEMENT_EXAMPLE)
+    @FindBy(xpath = WEB_ELEMENT_EXAMPLE)
     public WebElement example;
 
     //-> Deals Link
@@ -95,6 +96,14 @@ public class AccessoriesPage extends WebAPI {
     }
 
     /**
+     * Scenario #5
+     */
+
+    public void navigateToAccessoriesPage(){
+        navigateBack();
+    }
+
+    /**
      * Scenario #3
      */
 
@@ -122,6 +131,98 @@ public class AccessoriesPage extends WebAPI {
 
     public void verifyIphone12CompatibleHeader(String expected) throws InterruptedException {
         softAssertAssertEqualsGetText(WEB_ELEMENT_HEADER_IPHONE12,expected);
+    }
+
+    /**
+     * Scenario #4
+     */
+
+    public void scrollToSamsungCase(){
+        WebElement ele = driver.findElement(By.xpath(WEB_ELEMENT_SAMSUNG_LINK));
+        scrollToElementUsingActions(ele);
+        implicitWait(5);
+    }
+
+    public void selectSamsungCase(){
+       clickByXNCssUsingJavaScript(WEB_ELEMENT_SAMSUNG_LINK);
+    }
+
+    public void scrollDownSamsungCasePage(){
+        try {
+            robotScrollDown(6);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void selectCheckOutButton(){
+        clickByXNCssUsingJavaScript(WEB_ELEMENT_BUTTON_CHECKOUT);
+    }
+
+    public void verifyShoppingCartHeader(String expected){
+        softAssertAssertEqualsGetText(WEB_ELEMENT_HEADER_BEGIN_CHECKOUT,expected);
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /*
+    Accessories Main Page
+     */
+
+    /**
+     * Scenario #1
+     */
+
+    public void scrollToWhatsTrending(){
+        scrollToElementUsingJavaScript(WEB_ELEMENT_HEADER_TRENDING);
+    }
+
+    public void verifyTrendingHeader(String expected){
+        softAssertAssertEqualsGetText(WEB_ELEMENT_HEADER_TRENDING,expected);
+    }
+
+    public void verifyShouldNotSeeTrending(String expected){
+        softAssertAssertNotEqualsGetText(expected,WEB_ELEMENT_HEADER_TRENDING);
+    }
+
+    /**
+     * Scenario #2
+     */
+
+    public void selectAirPodsLink(){
+        clickByXNCssUsingActions(WEB_ELEMENT_LINK_AIRPODS);
+    }
+
+    public void verifyAirPodsHeader(String expected){
+        softAssertAssertEqualsGetText(WEB_ELEMENT_HEADER_AIRPODS,expected);
+    }
+
+    public void verifyPriceAirPods(String expected){
+        softAssertAssertEqualsGetText(WEB_ELEMENT_HEADER_PRICE,expected);
+    }
+
+    /**
+     * Scenario #3
+     */
+
+    public void scrollToBottomOfAccessoriesPage(){
+        scrollToBottomOfPage();
+        implicitWait(10);
+    }
+
+    public void scrollToTopOfAccessoriesPage(){
+        robot.keyPress(KeyEvent.VK_PAGE_UP);
+        robot.keyPress(KeyEvent.VK_PAGE_UP);
+        implicitWait(10);
+    }
+
+    public void refreshAccessoriesPage() throws InterruptedException, AWTException {
+        refresh();
+        implicitWait(10);
+    }
+
+    public void verifyAccessoriesHeader(String expected){
+        softAssertAssertEqualsGetText(WEB_ELEMENT_HEADER_ACCESSORIES,expected);
     }
 
 

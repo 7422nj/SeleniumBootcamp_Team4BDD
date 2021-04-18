@@ -25,7 +25,25 @@ public class AccessoriesLocators {
     public static final String WEB_ELEMENT_IPHONE = "iPhone";
     public static final String WEB_ELEMENT_HEADER_IPHONE12 = "//div[.='iPhone 12']";
 
+    //Find case for Samsung S21
+    public static final String WEB_ELEMENT_SAMSUNG_LINK = "//span[normalize-space()='Gear4 Copenhagen Case for Galaxy S21 Ultra 5G']";
+    public static final String WEB_ELEMENT_BUTTON_CHECKOUT = "//button[contains(text(),'Checkout')]";
+    public static final String WEB_ELEMENT_HEADER_BEGIN_CHECKOUT = "//h1[normalize-space()='Begin Checkout']";
 
+    /**
+     * Accessories Main Page
+     */
+
+    //See what is trending
+    public static final String WEB_ELEMENT_HEADER_TRENDING = "//h2[contains(text(),\"See what's trending.\")]";
+
+    //Select Airpods and View Price
+    public static final String WEB_ELEMENT_LINK_AIRPODS = "//div[@class='product-tile height--xs400 height--md266 height--lg400 u-colorBackgroundGray--1 u-paddingAll--xs24 u-marginBottom--xs32 u-marginBottom--md0']";
+    public static final String WEB_ELEMENT_HEADER_AIRPODS = "//h1[@class='fontDSStd-75Bd fontSize_24 textAlignLeft color_000 deviceName']";
+    public static final String WEB_ELEMENT_HEADER_PRICE = "//div[@class='fontSize_16 fontDSStd-75Bd']";
+
+    //View Accessories Page
+    public static final String WEB_ELEMENT_HEADER_ACCESSORIES = "//h1[contains(text(),'Accessories')]";
 
 
 

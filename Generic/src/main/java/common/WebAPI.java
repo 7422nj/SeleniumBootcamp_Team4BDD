@@ -5,6 +5,7 @@ import com.relevantcodes.extentreports.LogStatus;
 import io.cucumber.java.an.E;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.math3.analysis.function.Exp;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -911,7 +912,14 @@ public class WebAPI {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         //This will scroll the web page till end.
         js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+
     }
+    public static void scrollToTopOfPage() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        //This will scroll the web page till top.
+        js.executeScript("window.scrollTo(document.body.scrollHeight, 0)");
+
+}
 
     public static void WebDriverWaitUntilVisibility(int seconds, WebElement element) {
         WebDriverWait wait = new WebDriverWait(driver, seconds);
@@ -1048,11 +1056,11 @@ public class WebAPI {
 
     }
 
-    public static void hoverOverDropdownNClickUsingXpath(String main, String sub) {
+    public static void hoverOverNClickUsingXpath(String main, String sub) {
         implicitWait(20);
         WebElement mainMenu = driver.findElement(By.xpath(main));
         Actions actions = new Actions(driver);
-        actions.moveToElement(mainMenu).perform();
+        actions.moveToElement(mainMenu).build().perform();
         WebElement subMenu = driver.findElement(By.xpath(sub));
         actions.moveToElement(subMenu);
         actions.click().build().perform();
@@ -1453,7 +1461,53 @@ public class WebAPI {
 
     public static void scrollToElementUsingActions(WebElement ele){
         Actions action = new Actions(driver);
+        action.keyDown(ele,Keys.CONTROL).build().perform();
+    }
+
+    public static void scrollNClickElementUsingActions(WebElement ele){
+        Actions action = new Actions(driver);
         action.keyDown(ele,Keys.CONTROL).perform();
+    }
+
+    public static void robotScrollUp(int scrolls){
+        for (int i =0; i < scrolls; i++)
+        robot.keyPress(KeyEvent.VK_PAGE_UP);
+        robot.keyRelease(KeyEvent.VK_PAGE_UP);
+    }
+
+    public void clickByXNCssUsingActions(String locator){
+        try {
+            Actions act = new Actions(driver);
+            WebElement element = driver.findElement(By.xpath(locator));
+            act.click(element).build().perform();
+        } catch (Exception e){
+            e.printStackTrace();
+            try {
+                Actions act = new Actions(driver);
+                WebElement element = driver.findElement(By.cssSelector(locator));
+                act.click(element).build().perform();
+            } catch (Exception e1){
+                e1.printStackTrace();
+            }
+        }
+
+    }
+
+    public void softAssertAssertNotEqualsGetText(String exp,String act){
+        try {
+            String expected = exp;
+            String actual = driver.findElement(By.xpath(act)).getText();
+            softAssert.assertNotEquals(actual, expected, "\n*** Test Failed - Try Again ***");
+        } catch (Exception e){
+            e.printStackTrace();
+            try {
+                String expected = exp;
+                String actual = driver.findElement(By.cssSelector(act)).getText();
+                softAssert.assertNotEquals(actual, expected, "\n*** Test Failed - Try Again ***");
+            } catch (Exception e1){
+                e1.printStackTrace();
+            }
+        }
     }
 }
 

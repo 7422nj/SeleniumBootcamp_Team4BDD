@@ -30,7 +30,8 @@ public class DealsStepDefinition extends WebAPI {
     }
 
     @Given("I am on Verizon Accessories page")
-    public void iamonVerizonAccessoriesPage() throws IOException { openBrowser("https://www.verizon.com/featured/accessories/");
+    public void iamonVerizonAccessoriesPage() throws IOException {
+        openBrowser("https://www.verizon.com/featured/accessories/");
     }
 
     @After
@@ -97,6 +98,11 @@ public class DealsStepDefinition extends WebAPI {
     public void iShouldIsSelectedFromDropDown(String expected) throws InterruptedException {
         ac.verifyPriceLowToHigh(expected);
     }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     * Scenario #3
+     */
 
     @And("I click on compatible phone search field")
     public void iClickOnCompatiblePhoneSearchField() {
@@ -122,6 +128,47 @@ public class DealsStepDefinition extends WebAPI {
     public void iShouldSeeAsIPhoneTwelveCompatibleItems(String expected) throws InterruptedException {
         ac.verifyIphone12CompatibleHeader(expected);
     }
+
+    /**
+     * Scenario 4
+     */
+
+    @When("I scroll down to Samsung Case")
+    public void iScrollDownToSamsungCase() {
+        ac.scrollToSamsungCase();
+    }
+
+    @And("I click on Samsung phone case")
+    public void iClickOnSamsungPhoneCase() {
+        ac.selectSamsungCase();
+    }
+
+    @And("I scroll down page")
+    public void iScrollDownPage() {
+        ac.scrollDownSamsungCasePage();
+    }
+
+    @And("I click on checkout button")
+    public void iClickOnCheckoutButton() {
+        ac.selectCheckOutButton();
+    }
+
+    @Then("I should see {string} as added to shopping cart header")
+    public void iShouldSeeAsAddedToShoppingCartHeader(String expected) {
+        ac.verifyShoppingCartHeader(expected);
+    }
+
+    /**
+     * Scenario #5
+     */
+
+    @And("I navigate back to Accessories page")
+    public void iNavigateBackToAccessoriesPage() {
+        ac.navigateToAccessoriesPage();
+    }
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
     /////////////////////////////////////////////////////////////////////////////////////////
 
