@@ -213,6 +213,7 @@ public class AccessoriesPage extends WebAPI {
     public void scrollToTopOfAccessoriesPage(){
         robot.keyPress(KeyEvent.VK_PAGE_UP);
         robot.keyPress(KeyEvent.VK_PAGE_UP);
+        robot.keyRelease(KeyEvent.VK_PAGE_UP);
         implicitWait(10);
     }
 
@@ -223,6 +224,93 @@ public class AccessoriesPage extends WebAPI {
 
     public void verifyAccessoriesHeader(String expected){
         softAssertAssertEqualsGetText(WEB_ELEMENT_HEADER_ACCESSORIES,expected);
+    }
+
+    /**
+     * Scenario #4
+     */
+
+    public void scrollToChargersLink(){
+        scrollToElementUsingJavaScript(WEB_ELEMENT_LINK_CHARGERS);
+    }
+
+    public void verifyChargersHeaderLink(String expected){
+        softAssertAssertEqualsGetText(WEB_ELEMENT_HEADER_CHARGERS,expected);
+    }
+
+    public void selectChargersLink(){
+        clickByXNCssUsingJavaScript(WEB_ELEMENT_LINK_CHARGERS);
+    }
+
+    public void select2In1Charger(){
+        clickByXNCssUsingJavaScript(WEB_ELEMENT_2IN1_CHARGER);
+    }
+
+    public void verifyPriceCharger(String expected){
+        softAssertAssertEqualsGetText(WEB_ELEMENT_VERIFY_PRICE,expected);
+    }
+
+    public void verifyWireLessChargerHeader(String expected){
+        softAssertAssertEqualsGetText(WEB_ELEMENT_VERIFY_WIRELESS,expected);
+    }
+
+    /**
+     * Scenario #5
+     */
+
+    public void selectSpeakersLink(){
+        clickByXNCssUsingJavaScript(WEB_ELEMENT_SPEAKER_LINK);
+    }
+
+    public void scrollToSpeakers(){
+        scrollToElementUsingJavaScript(WEB_ELEMENT_SPEAKER_LINK);
+    }
+
+    public void selectAppleMiniSpeaker(){
+        clickByXNCssUsingJavaScript(WEB_ELEMENT_APPLE_SPEAKER);
+    }
+
+    public void verifySpeakersHeader(String expected){
+        softAssertAssertEqualsGetText(WEB_ELEMENT_VERIFY_HEADER_SPEAKER,expected);
+    }
+
+    public void verifyNotSpeakersHeader(String expected){
+        softAssertAssertNotEqualsGetText(expected,WEB_ELEMENT_VERIFY_HEADER_SPEAKER);
+    }
+
+    /**
+     * Scenario #6
+     */
+
+    public void scrollToGaming(){
+        scrollToElementUsingJavaScript(WEB_ELEMENT_LINK_GAMING);
+    }
+
+    public void selectGamingLink(){
+        clickByXNCssUsingJavaScript(WEB_ELEMENT_LINK_GAMING);
+    }
+
+    public void selectHeadphoneGaming(){
+        clickByXNCssUsingJavaScript(WEB_ELEMENT_LINK_HEADPHONE);
+    }
+
+    public void verifyHeadphoneHeader(String expected){
+        softAssertAssertEqualsGetText(WEB_ELEMENT_VERIFY_HEADER_GAMING,expected);
+    }
+
+    public void verifyNotHeadphoneHeader(String expected){
+        softAssertAssertNotEqualsGetText(expected,WEB_ELEMENT_VERIFY_HEADER_GAMING);
+    }
+    public void selectKeyboard(){
+        clickByXNCssUsingJavaScript(WEB_ELEMENT_KEYBOARD_GAMING);
+    }
+
+    public void verifyKeyboardHeader(String expected){
+        softAssertAssertEqualsGetText(WEB_ELEMENT_VERIFY_KEYBOARD,expected);
+    }
+
+    public void verifyNotKeyboardHeader(String expected){
+        softAssertAssertNotEqualsGetText(expected,WEB_ELEMENT_VERIFY_KEYBOARD);
     }
 
 
