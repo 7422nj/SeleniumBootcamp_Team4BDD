@@ -241,6 +241,41 @@ public class SupportPage extends WebAPI {
         softAssertAssertNotEqualsGetText(expected,WEB_ELEMENT_VERIFY_DIGITAL_PHONE);
     }
 
+    /**
+     * Scenario #5
+     */
+
+    public void scrollToElementEmail(){
+        scrollToElementUsingJavaScript(WEB_ELEMENT_LINK_EMAIL);
+    }
+
+    public void selectEmail(){
+        clickByXNCssUsingJavaScript(WEB_ELEMENT_LINK_EMAIL);
+    }
+
+    public void verifyEmailResultHeader(String expected){
+        softAssertAssertEqualsGetText(WEB_ELEMENT_VERIFY_EMAIL,expected);
+    }
+
+    public void verifyNotEmailResultHeader(String expected){
+        softAssertAssertNotEqualsGetText(expected,WEB_ELEMENT_VERIFY_EMAIL);
+    }
+
+    /**
+     * Scenario #6
+     */
+
+    public void navigateToSupport(){
+        navigateBack();
+    }
+
+    public void verifySupportHeader(String expected){
+        softAssertAssertEqualsGetText(WEB_ELEMENT_VERIFY_SUPPORT,expected);
+    }
+
+    public void verifyNotSupportHeader(String expected){
+        softAssertAssertNotEqualsGetText(expected,WEB_ELEMENT_VERIFY_SUPPORT);
+    }
 
 
 

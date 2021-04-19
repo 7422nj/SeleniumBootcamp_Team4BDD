@@ -55,5 +55,11 @@ public class SupportLocators {
     public static final String WEB_ELEMENT_LINK_DIGITAL_PHONE = "//a[.='Digital phone']";
     public static final String WEB_ELEMENT_VERIFY_DIGITAL_PHONE = "//span[.='Digital Phone support']";
 
+    //Find AT&T Email Support Page
+    public static final String WEB_ELEMENT_LINK_EMAIL = "//a[.='Email']";
+    public static final String WEB_ELEMENT_VERIFY_EMAIL = "//span[.='AT&T Mail support']";
+
+    //Navigate back to Main Support Page
+    public static final String WEB_ELEMENT_VERIFY_SUPPORT = "//h1[@class='_Cd-fA']";
 
 }

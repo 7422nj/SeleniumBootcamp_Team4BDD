@@ -136,4 +136,39 @@ public class SupportPageStepDefinition extends WebAPI {
     public void iShouldNotSeeAsDigitalPhoneHeader(String expected) {
         support.verifyNotDigitalResultHeader(expected);
     }
+
+    @When("I scroll to AT&T email")
+    public void iScrollToATTEmail() {
+        support.scrollToElementEmail();
+    }
+
+    @And("I click on AT&T email")
+    public void iClickOnATTEmail() {
+        support.selectEmail();
+    }
+
+    @And("I should see {string} as AT&T email header")
+    public void iShouldSeeAsATTEmailHeader(String expected) {
+        support.verifyEmailResultHeader(expected);
+    }
+
+    @But("I should not see {string} as AT&T email header")
+    public void iShouldNotSeeAsATTEmailHeader(String expected) {
+        support.verifyNotEmailResultHeader(expected);
+    }
+
+    @And("I navigate back to main support page")
+    public void iNavigateBackToMainSupportPage() {
+        support.navigateToSupport();
+    }
+
+    @And("I should see {string} as support page header")
+    public void iShouldSeeAsSupportPageHeader(String expected) {
+        support.verifySupportHeader(expected);
+    }
+
+    @But("I should not see {string} as support page header")
+    public void iShouldNotSeeAsSupportPageHeader(String expected) {
+        support.verifyNotSupportHeader(expected);
+    }
 }
