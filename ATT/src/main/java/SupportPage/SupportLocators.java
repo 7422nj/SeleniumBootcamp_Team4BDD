@@ -35,6 +35,15 @@ public class SupportLocators {
     //View results after selecting search button
     public static final String WEB_ELEMENT_HEADER_RESULTS = "//div[@class='_2syZ7']";
 
+    /**
+     * Support Main Page
+     */
 
+    //Find Bills & Accounts Page
+    public static final String WEB_ELEMENT_LINK_BILLS = "//a[.='Bill & account']";
+    public static final String WEB_ELEMENT_VERIFY_BILL_HEADER = "//span[.='Bill & account support']";
 
+    //Find Wireless Support
+    public static final String WEB_ELEMENT_LINK_WIRELESS = "//a[@title=\"Wireless\"]";
+    public static final String WEB_ELEMENT_VERIFY_WIRELESS = "//span[.='Wireless support']";
 }

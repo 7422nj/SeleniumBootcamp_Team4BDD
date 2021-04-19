@@ -3,7 +3,6 @@ package SupportPage;
 import SupportPage.ATTDataDriver.DataSource;
 import common.WebAPI;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 
 import java.awt.*;
@@ -144,6 +143,7 @@ public class SupportPage extends WebAPI {
      * Scenario #3
      * @param expected
      */
+
     public void verifySearchResultDropDown(String expected){ assertEqualGetText(WEB_ELEMENT_RESULT_BILLS,expected);
     }
     public void selectBillsSupportDropDown(){ click(WEB_ELEMENT_RESULT_BILLS);
@@ -155,6 +155,54 @@ public class SupportPage extends WebAPI {
         assertEqualGetText(WEB_ELEMENT_HEADER_RESULTS,exp2);
 
     }
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /*
+    Support Main Page
+     */
+
+    /**
+     * Scenario #1
+     */
+
+    public void scrollToElementBillsNAccounts(){
+        scrollToElementUsingJavaScript(WEB_ELEMENT_LINK_BILLS);
+    }
+
+    public void selectBillsSupport(){
+        clickByXNCssUsingJavaScript(WEB_ELEMENT_LINK_BILLS);
+    }
+
+    public void verifyBillsResultHeader(String expected){
+        softAssertAssertEqualsGetText(WEB_ELEMENT_VERIFY_BILL_HEADER,expected);
+    }
+
+    public void verifyNotBillsResultHeader(String expected){
+        softAssertAssertNotEqualsGetText(expected,WEB_ELEMENT_VERIFY_BILL_HEADER);
+    }
+
+    /**
+     * Scenario #2
+     */
+
+    public void scrollToElementWireless(){
+        scrollToElementUsingJavaScript(WEB_ELEMENT_LINK_WIRELESS);
+    }
+
+    public void selectWireless(){
+        clickByXNCssUsingJavaScript(WEB_ELEMENT_LINK_WIRELESS);
+    }
+
+    public void verifyWirelessResultHeader(String expected){
+        softAssertAssertEqualsGetText(WEB_ELEMENT_VERIFY_WIRELESS,expected);
+    }
+
+    public void verifyNotWirelessResultHeader(String expected){
+        softAssertAssertNotEqualsGetText(expected,WEB_ELEMENT_VERIFY_WIRELESS);
+    }
+
+
+
 
 
 
