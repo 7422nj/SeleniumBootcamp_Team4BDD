@@ -43,7 +43,17 @@ public class SupportLocators {
     public static final String WEB_ELEMENT_LINK_BILLS = "//a[.='Bill & account']";
     public static final String WEB_ELEMENT_VERIFY_BILL_HEADER = "//span[.='Bill & account support']";
 
-    //Find Wireless Support
+    //Find Wireless Support Page
     public static final String WEB_ELEMENT_LINK_WIRELESS = "//a[@title=\"Wireless\"]";
     public static final String WEB_ELEMENT_VERIFY_WIRELESS = "//span[.='Wireless support']";
+
+    //Find AT&T Internet Support Page
+    public static final String WEB_ELEMENT_LINK_INTERNET = "//a[.='Fixed Wireless Internet']";
+    public static final String WEB_ELEMENT_VERIFY_INTERNET = "//span[.='Fixed Wireless Internet support']";
+
+    //Find Digital Phone Support Page
+    public static final String WEB_ELEMENT_LINK_DIGITAL_PHONE = "//a[.='Digital phone']";
+    public static final String WEB_ELEMENT_VERIFY_DIGITAL_PHONE = "//span[.='Digital Phone support']";
+
+
 }

@@ -201,6 +201,46 @@ public class SupportPage extends WebAPI {
         softAssertAssertNotEqualsGetText(expected,WEB_ELEMENT_VERIFY_WIRELESS);
     }
 
+    /**
+     * Scenario #3
+     */
+
+    public void scrollToElementInternet(){
+        scrollToElementUsingJavaScript(WEB_ELEMENT_LINK_INTERNET);
+    }
+
+    public void selectInternet(){
+        clickByXNCssUsingJavaScript(WEB_ELEMENT_LINK_INTERNET);
+    }
+
+    public void verifyInternetResultHeader(String expected){
+        softAssertAssertEqualsGetText(WEB_ELEMENT_VERIFY_INTERNET,expected);
+    }
+
+    public void verifyNotInternetResultHeader(String expected){
+        softAssertAssertNotEqualsGetText(expected,WEB_ELEMENT_VERIFY_INTERNET);
+    }
+
+    /**
+     * Scenario #4
+     */
+
+    public void scrollToElementDigital(){
+        scrollToElementUsingJavaScript(WEB_ELEMENT_LINK_DIGITAL_PHONE);
+    }
+
+    public void selectDigital(){
+        clickByXNCssUsingJavaScript(WEB_ELEMENT_LINK_DIGITAL_PHONE);
+    }
+
+    public void verifyDigitalResultHeader(String expected){
+        softAssertAssertEqualsGetText(WEB_ELEMENT_VERIFY_DIGITAL_PHONE,expected);
+    }
+
+    public void verifyNotDigitalResultHeader(String expected){
+        softAssertAssertNotEqualsGetText(expected,WEB_ELEMENT_VERIFY_DIGITAL_PHONE);
+    }
+
 
 
 

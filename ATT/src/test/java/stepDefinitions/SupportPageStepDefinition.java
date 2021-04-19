@@ -40,6 +40,11 @@ public class SupportPageStepDefinition extends WebAPI {
  //////////////////////////////////////////////////////////////////////////////////////////////////////
     }
 
+    /**
+     * Scenario 1
+     * @throws InterruptedException
+     */
+
     @When("I scroll down to bills")
     public void iScrollDownThePage() throws InterruptedException {
         support.scrollToElementBillsNAccounts();
@@ -60,6 +65,10 @@ public class SupportPageStepDefinition extends WebAPI {
         support.verifyNotBillsResultHeader(expected);
     }
 
+    /**
+     * Scenario 2
+     */
+
     @And("I click on Wireless")
     public void iClickOnWireless() {
         support.selectWireless();
@@ -78,5 +87,53 @@ public class SupportPageStepDefinition extends WebAPI {
     @But("I should not see {string} as wireless header")
     public void iShouldNotSeeAsWirelessHeader(String expected) {
         support.verifyNotWirelessResultHeader(expected);
+    }
+
+    /**
+     * Scenario 3
+     */
+
+    @When("I scroll to fixed internet")
+    public void iScrollToATTInternet() {
+        support.scrollToElementInternet();
+    }
+
+    @And("I click on fixed Internet")
+    public void iClickOnATTInternet() {
+        support.selectInternet();
+    }
+
+    @And("I should see {string} as internet header")
+    public void iShouldSeeAsInternetHeader(String expected) {
+        support.verifyInternetResultHeader(expected);
+    }
+
+    @But("I should not see {string} as internet header")
+    public void iShouldNotSeeAsInternetHeader(String expected) {
+        support.verifyNotInternetResultHeader(expected);
+    }
+
+    /**
+     * Scenario 4
+     */
+
+    @When("I scroll to digital phone")
+    public void iScrollToDigitalPhone() {
+        support.scrollToElementDigital();
+    }
+
+    @And("I click on digital phone")
+    public void iClickOnDigitalPhone() {
+        support.selectDigital();
+    }
+
+    @And("I should see {string} as digital phone header")
+    public void iShouldSeeAsDigitalPhoneHeader(String expected) {
+        support.verifyDigitalResultHeader(expected);
+    }
+
+    @But("I should not see {string} as digital phone header")
+    public void iShouldNotSeeAsDigitalPhoneHeader(String expected) {
+        support.verifyNotDigitalResultHeader(expected);
     }
 }
