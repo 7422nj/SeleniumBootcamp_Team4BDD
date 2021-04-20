@@ -46,6 +46,10 @@ public class PodcastStepDefinition extends WebAPI {
     }
     ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     * Scenario #1
+     */
+
     @When("I scroll to Mel & Todd All-Satellite Team")
     public void iScrollToMelToddAllSatelliteTeam() {
         pod.scrollToMelNTodds();
@@ -118,6 +122,54 @@ public class PodcastStepDefinition extends WebAPI {
     @But("I should not see {string} as 30 for 30 header")
     public void iShouldNotSeeAsForHeader(String expected) {
         pod.verifyNot30For30Header(expected);
+    }
+
+    /**
+     * Scenario #4
+     */
+
+    @When("I scroll to The Adam Schefter Podcast \\(NFL)")
+    public void iScrollToTheAdamSchefterPodcastNFL() {
+        pod.scrolledToAdams();
+    }
+
+    @And("I click on The Adam Schefter Podcast \\(NFL)")
+    public void iClickOnTheAdamSchefterPodcastNFL() {
+        pod.selectAdam();
+    }
+
+    @And("I should see {string} as Adam Podcast Header")
+    public void iShouldSeeAsAdamPodcastHeader(String expected) {
+        pod.verifyAdamHeader(expected);
+    }
+
+    @But("I should not see {string} as Adam Podcast Header")
+    public void iShouldNotSeeAsAdamPodcastHeader(String expected) {
+        pod.verifyNotAdamHeader(expected);
+    }
+
+    /**
+     * Scenario #5
+     */
+
+    @When("I scroll to Around the Rim with LaChina Robinson \\(WBB)")
+    public void iScrollToAroundTheRimWithLaChinaRobinsonWBB() {
+        pod.scrolledToLaChina();
+    }
+
+    @And("I click on Around the Rim with LaChina Robinson \\(WBB)")
+    public void iClickOnAroundTheRimWithLaChinaRobinsonWBB() {
+        pod.selectLaChina();
+    }
+
+    @And("I should see {string} as LaChina Podcast Header")
+    public void iShouldSeeAsLaChinaPodcastHeader(String expected) {
+        pod.verifyLaChinaHeader(expected);
+    }
+
+    @But("I should not see {string} as LaChina Podcast Header")
+    public void iShouldNotSeeAsLaChinaPodcastHeader(String expected) {
+        pod.verifyNotLaChineseHeader(expected);
     }
 }
 

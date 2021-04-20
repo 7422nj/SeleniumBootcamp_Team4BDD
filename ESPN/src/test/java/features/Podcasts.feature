@@ -28,6 +28,23 @@ Feature: ESPN Podcast
     But I should not see "Bootcamp404" as 30 for 30 header
     Then I should see "30 For 30 Podcasts Show - PodCenter - ESPN Radio" as page title
 
+  @burger
+  Scenario: Find The Adam Schefter Podcast (NFL)
+    When I scroll to The Adam Schefter Podcast (NFL)
+    And I click on The Adam Schefter Podcast (NFL)
+    And I should see "The Adam Schefter Podcast" as Adam Podcast Header
+    But I should not see "Bootcamp" as Adam Podcast Header
+    Then I should see "The Adam Schefter Podcast Show - PodCenter - ESPN Radio" as page title
+
+  @burger
+  Scenario: Find Around the Rim with LaChina Robinson (WBB)
+    When I scroll to Around the Rim with LaChina Robinson (WBB)
+    And I click on Around the Rim with LaChina Robinson (WBB)
+    And I should see "Around The Rim" as LaChina Podcast Header
+    But I should not see "Bootcamp404" as LaChina Podcast Header
+    Then I should see "Around The Rim Show - PodCenter - ESPN Radio" as page title
+
+
 
 
 

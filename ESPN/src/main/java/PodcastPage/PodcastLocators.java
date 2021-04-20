@@ -14,7 +14,13 @@ public class PodcastLocators {
     public static final String WEB_ELEMENT_LINK_30 = "//a[.='30 for 30']";
     public static final String WEB_ELEMENT_VERIFY_30 = "//h4[.='30 For 30 Podcasts']";
 
+    //Find Adam Podcast
+    public static final String WEB_ELEMENT_LINK_ADAM = "//a[.='The Adam Schefter Podcast (NFL)']";
+    public static final String WEB_ELEMENT_VERIFY_ADAM = "//h4[.='The Adam Schefter Podcast']";
 
+    //Find Around the Rim with LaChina Robinson (WBB)
+    public static final String WEB_ELEMENT_LINK_WBB = "//a[.='Around the Rim with LaChina Robinson (WBB)']";
+    public static final String WEB_ELEMENT_VERIFY_WBB = "//h4[.='Around The Rim']";
 
 
 

@@ -86,6 +86,46 @@ public class PodcastPage extends WebAPI {
         softAssertAssertNotEqualsGetText(expected,WEB_ELEMENT_VERIFY_30);
     }
 
+    /**
+     * Scenario #4
+     */
+
+    public void scrolledToAdams(){
+        scrollToElementUsingJavaScript(WEB_ELEMENT_LINK_ADAM);
+    }
+
+    public void selectAdam(){
+        clickByXNCssUsingJavaScript(WEB_ELEMENT_LINK_ADAM);
+    }
+
+    public void verifyAdamHeader(String expected){
+        softAssertAssertEqualsGetText(WEB_ELEMENT_VERIFY_ADAM,expected);
+    }
+
+    public void verifyNotAdamHeader(String expected){
+        softAssertAssertNotEqualsGetText(expected,WEB_ELEMENT_VERIFY_ADAM);
+    }
+
+    /**
+     * Scenario #5
+     */
+
+    public void scrolledToLaChina(){
+        scrollToElementUsingJavaScript(WEB_ELEMENT_LINK_WBB);
+    }
+
+    public void selectLaChina(){
+        clickByXNCssUsingJavaScript(WEB_ELEMENT_LINK_WBB);
+    }
+
+    public void verifyLaChinaHeader(String expected){
+        softAssertAssertEqualsGetText(WEB_ELEMENT_VERIFY_WBB,expected);
+    }
+
+    public void verifyNotLaChineseHeader(String expected){
+        softAssertAssertNotEqualsGetText(expected,WEB_ELEMENT_VERIFY_WBB);
+    }
+
 
 
 
