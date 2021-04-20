@@ -2,7 +2,7 @@ Feature: Electronics Page Search Box Functionalities
 
   #Background: common steps by sync way will work with your scenario
   Background:
-    Given I am on ebay electronics page
+    Given I am on ebay electronic page
 
   @burger
   Scenario: Search box is displayed

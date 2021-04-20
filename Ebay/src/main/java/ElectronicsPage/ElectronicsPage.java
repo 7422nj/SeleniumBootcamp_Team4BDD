@@ -151,4 +151,133 @@ public class ElectronicsPage extends WebAPI {
         find(WEB_ELEMENT_SELECT_DROP_DOWN);
         clickByXNCssUsingJavaScript(WEB_ELEMENT_SELECT_DROP_DOWN);
     }
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /*
+    Electronics Main Page
+     */
+
+    /**
+     * Scenario #1
+     */
+
+    public void scrollToHeadphones(){
+        scrollToElementUsingJavaScript(WEB_ELEMENT_LINK_HEADPHONES);
+    }
+
+    public void selectHeadphones(){
+        clickByXNCssUsingJavaScript(WEB_ELEMENT_LINK_HEADPHONES);
+    }
+
+    public void selectSonyHeadphones(){
+        clickByXNCssUsingJavaScript(WEB_ELEMENT_LINK_SONY_HEADPHONE);
+    }
+
+    public void scrollDown(){
+        try {
+            robotScrollDown(6);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void verifyHeadphonesHeader(String Expected){
+        softAssertAssertEqualsGetText(WEB_ELEMENT_VERIFY_HEADPHONE,Expected);
+    }
+
+    public void verifyNotHeadphonesHeader(String expected){
+        softAssertAssertNotEqualsGetText(expected,WEB_ELEMENT_VERIFY_HEADPHONE);
+    }
+
+    public void verifyPageTitle(String expected){
+        softAssertAssertEqualsGetTitle(expected);
+    }
+
+    /**
+     * Scenario #2
+     */
+
+    public void scrollToComputers(){
+        scrollToElementUsingJavaScript(WEB_ELEMENT_LINK_COMPUTERS);
+    }
+
+    public void selectComputers(){
+        clickByXNCssUsingJavaScript(WEB_ELEMENT_LINK_COMPUTERS);
+    }
+
+    public void scrollToAcer(){
+        scrollToElementUsingJavaScript(WEB_ELEMENT_LINK_ACER);
+    }
+
+    public void selectAcer(){
+        clickByXNCssUsingJavaScript(WEB_ELEMENT_LINK_ACER);
+    }
+
+    public void verifyAcerHeader(String expected){
+        softAssertAssertEqualsGetText(WEB_ELEMENT_VERIFY_ACER,expected);
+    }
+
+    public void verifyNotAcerHeader(String expected){
+        softAssertAssertNotEqualsGetText(expected,WEB_ELEMENT_VERIFY_ACER);
+    }
+
+    public void verifyCurrentUrl(String expected){
+        assertEqualsGetCurrentUrl(expected);
+    }
+
+    /**
+     * Scenario #3
+     */
+
+    public void scrollToApple(){
+        scrollToElementUsingJavaScript(WEB_ELEMENT_LINK_APPLE);
+    }
+
+    public void selectApple(){
+        clickByXNCssUsingJavaScript(WEB_ELEMENT_LINK_APPLE);
+    }
+
+    public void scrollToAppleWatch(){
+        scrollToElementUsingJavaScript(WEB_ELEMENT_LINK_WATCH);
+    }
+
+    public void selectAppleWatch(){
+        clickByXNCssUsingJavaScript(WEB_ELEMENT_LINK_WATCH);
+    }
+
+    public void verifyAppleWatchHeader(String expected){
+        softAssertAssertEqualsGetText(WEB_ELEMENT_VERIFY_WATCH,expected);
+    }
+
+    public void verifyNotAppleWatchHeader(String expected){
+        softAssertAssertNotEqualsGetText(expected,WEB_ELEMENT_VERIFY_WATCH);
+    }
+
+    /**
+     * Scenario #4
+     */
+
+    public void scrollToSmartHome(){
+        scrollToElementUsingJavaScript(WEB_ELEMENT_LINK_SMART);
+    }
+
+    public void selectSmartHome(){
+        clickByXNCssUsingJavaScript(WEB_ELEMENT_LINK_SMART);
+    }
+
+    public void scrollToEchoDot(){
+        scrollToElementUsingJavaScript(WEB_ELEMENT_LINK_ECHO);
+    }
+
+    public void selectEchoDot(){
+        clickByXNCssUsingJavaScript(WEB_ELEMENT_LINK_ECHO);
+    }
+
+    public void verifyEchoHeader(String expected){
+        softAssertAssertEqualsGetText(WEB_ELEMENT_VERIFY_ECHO_HEADER,expected);
+    }
+
+    public void verifyNotEchoHeader(String expected){
+        softAssertAssertNotEqualsGetText(expected,WEB_ELEMENT_VERIFY_ECHO_HEADER);
+    }
 }

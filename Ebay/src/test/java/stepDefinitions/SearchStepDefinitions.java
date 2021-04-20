@@ -31,14 +31,16 @@ public class SearchStepDefinitions {
             scenario.attach(screenShot, "image/png", "Ebay");  // embed it in the report
         }
     }
+    @Given("I am on ebay electronic page")
+    public void iAmOnEbayElectronicPage() throws IOException {
+        openBrowser("https://www.ebay.com/b/Electronics/bn_7000259124");
+    }
 
     @After
     public void closeBrowser() {
         cleanUp();
-
+    }
     /////////////////////////////////////////////////////////////////////////////////////////////////////
-    }@Given("I am on ebay electronics page")
-    public void iAmOnEbayHomePage() throws IOException { openBrowser("https://www.ebay.com/b/Electronics/bn_7000259124"); }
     /////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
@@ -108,4 +110,8 @@ public class SearchStepDefinitions {
     public void iClickOnComputersAndTablets() {
         Electron.selectComputersAndTablets();
     }
+
+    @Then("I should see {string} as result header")
+    public void iShouldSeeAsResultHeader(String expectedResult) { assertEqualGetText("//span[.='Macbook']",expectedResult); }
+
 }
