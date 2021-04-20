@@ -22,6 +22,10 @@ public class PodcastLocators {
     public static final String WEB_ELEMENT_LINK_WBB = "//a[.='Around the Rim with LaChina Robinson (WBB)']";
     public static final String WEB_ELEMENT_VERIFY_WBB = "//h4[.='Around The Rim']";
 
+    //Find The Daily Wager Podcast Page
+    public static final String WEB_ELEMENT_LINK_WAGER = "//a[.='Daily Wager']";
+    public static final String WEB_ELEMENT_VERIFY_WAGER = "//h4[.='Daily Wager']";
+
 
 
 

@@ -126,6 +126,26 @@ public class PodcastPage extends WebAPI {
         softAssertAssertNotEqualsGetText(expected,WEB_ELEMENT_VERIFY_WBB);
     }
 
+    /**
+     * Scenario #6
+     */
+
+    public void scrolledToWager(){
+        scrollToElementUsingJavaScript(WEB_ELEMENT_LINK_WAGER);
+    }
+
+    public void selectWager(){
+        clickByXNCssUsingJavaScript(WEB_ELEMENT_LINK_WAGER);
+    }
+
+    public void verifyWagerHeader(String expected){
+        softAssertAssertEqualsGetText(WEB_ELEMENT_VERIFY_WAGER,expected);
+    }
+
+    public void verifyNotWagerHeader(String expected){
+        softAssertAssertNotEqualsGetText(expected,WEB_ELEMENT_VERIFY_WAGER);
+    }
+
 
 
 

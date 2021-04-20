@@ -44,6 +44,14 @@ Feature: ESPN Podcast
     But I should not see "Bootcamp404" as LaChina Podcast Header
     Then I should see "Around The Rim Show - PodCenter - ESPN Radio" as page title
 
+  @burger
+  Scenario: Find The Daily Wager Podcast Page
+    When I scroll to The Daily Wager Podcast Page
+    And I click on The Daily Wager Podcast Page Link
+    And I should see "Daily Wager" as Daily Wager header
+    But I should not see "Bootcamp404" as Daily Wager header
+    Then I should see "Daily Wager Show - PodCenter - ESPN Radio" as page title
+
 
 
 

@@ -171,6 +171,30 @@ public class PodcastStepDefinition extends WebAPI {
     public void iShouldNotSeeAsLaChinaPodcastHeader(String expected) {
         pod.verifyNotLaChineseHeader(expected);
     }
+
+    /**
+     * Scenario #6
+     */
+
+    @When("I scroll to The Daily Wager Podcast Page")
+    public void iScrollToTheDailyWagerPodcastPage() {
+        pod.scrolledToWager();
+    }
+
+    @And("I click on The Daily Wager Podcast Page Link")
+    public void iClickOnTheDailyWagerPodcastPageLink() {
+        pod.selectWager();
+    }
+
+    @And("I should see {string} as Daily Wager header")
+    public void iShouldSeeAsDailyWagerHeader(String expected) {
+        pod.verifyWagerHeader(expected);
+    }
+
+    @But("I should not see {string} as Daily Wager header")
+    public void iShouldNotSeeAsDailyWagerHeader(String expected) {
+        pod.verifyNotWagerHeader(expected);
+    }
 }
 
 
