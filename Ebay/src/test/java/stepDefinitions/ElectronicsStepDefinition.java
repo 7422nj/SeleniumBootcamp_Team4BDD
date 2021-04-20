@@ -76,6 +76,11 @@ public class ElectronicsStepDefinition extends WebAPI {
         electron.verifyNotHeadphonesHeader(expected);
     }
 
+    /**
+     * Scenario #2
+     * @param expected
+     */
+
     @Then("I should see {string} as page title")
     public void iShouldSeeAsPageTitle(String expected) {
         electron.verifyPageTitle(expected);
