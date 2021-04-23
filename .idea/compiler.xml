@@ -15,7 +15,6 @@
         <module name="Airbnb" />
         <module name="ESPN" />
         <module name="Chase" />
-        <module name="Honda" />
         <module name="Redfin" />
         <module name="Ebay" />
         <module name="Expedia" />
@@ -24,5 +23,8 @@
         <module name="Verizon" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Honda" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
