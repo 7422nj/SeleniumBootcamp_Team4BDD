@@ -32,7 +32,7 @@ public class PodcastStepDefinition extends WebAPI {
             scenario.attach(screenShot,"image/png","ESPN");  // embed it in the report
         }
     }
-    @Given("I am ESPN Podcasts Page")
+    @Given("I am on ESPN Podcasts Page")
     public void iAmESPNPodcastsPage() {
         try {
             openBrowser("https://www.espn.com/espnradio/podcast/");
@@ -194,6 +194,89 @@ public class PodcastStepDefinition extends WebAPI {
     @But("I should not see {string} as Daily Wager header")
     public void iShouldNotSeeAsDailyWagerHeader(String expected) {
         pod.verifyNotWagerHeader(expected);
+    }
+
+    /**
+     * Scenario #7
+     */
+
+    @When("I scroll to The ESPN Investigates Podcast Page")
+    public void iScrollToTheESPNInvestigatesPodcastPage() {
+        pod.scrolledToInvestigates();
+    }
+
+    @And("I click on The ESPN Investigates Podcast Page")
+    public void iClickOnTheESPNInvestigatesPodcastPage() {
+        pod.selectInvestigates();
+    }
+
+    @And("I should see {string} as Investigates header")
+    public void iShouldSeeAsInvestigatesHeader(String expected) {
+        pod.verifyInvestigatesHeader(expected);
+    }
+
+    @But("I should not see {string} as Investigates header")
+    public void iShouldNotSeeAsInvestigatesHeader(String expected) {
+        pod.verifyNotInvestigatesHeader(expected);
+    }
+
+    /**
+     * Scenario #8
+     */
+
+    @When("I scroll to Getting The Team Back Podcast")
+    public void iScrollToGettingTheTeamBackPodcast() {
+        pod.scrollToElementDownloadTeamPod();
+    }
+
+    @And("I hover over download link")
+    public void iHoverOverDownloadLink() {
+        pod.hoverOverElementDownloadTeamPod();
+    }
+
+    @And("I click on download link")
+    public void iClickOnDownloadLink() {
+        pod.selectDownloadTeamPod();
+    }
+
+    @And("I click on audio play button")
+    public void iClickOnAudioPlayButton() {
+        pod.selectAudioPlayButton();
+    }
+
+    @Then("I should see audio box is {string} displayed")
+    public void iShouldSeeAudioBoxIsDisplayed(String expected) {
+        pod.verifyAudioBoxIsDisplayed(expected);
+    }
+
+    @But("I should not see {string} no other boxes are displayed")
+    public void iShouldNotSeeNoOtherBoxesAreDisplayed(String expected) {
+        pod.verifyNotDisplayedOnPage(expected);
+    }
+
+    @When("I click on search button")
+    public void iClickOnSearchButton() {
+        pod.selectSearchButton();
+    }
+
+    @And("I click on search field")
+    public void iClickOnSearchField() {
+        pod.selectSearchField();
+    }
+
+    @And("I enter {string} into search field")
+    public void iEnterIntoSearchField(String searchPodcasts) throws InterruptedException {
+        pod.sendKeysUsingTable(searchPodcasts);
+    }
+
+    @And("I should see {string} written in search field")
+    public void iShouldSeeInWrittenInSearchField(String expectedValue) {
+        pod.verifyAttributeValueOfSearchField(expectedValue);
+    }
+
+    @But("I should not see {string} written in search field")
+    public void iShouldNotSeeWrittenInSearchField(String notExpectedValue) {
+        pod.verifyNotAttributeValueOfSearchField(notExpectedValue);
     }
 }
 

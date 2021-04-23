@@ -10,6 +10,8 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.jsoup.nodes.Element;
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.support.PageFactory;
@@ -114,4 +116,23 @@ public class SearchStepDefinitions {
     @Then("I should see {string} as result header")
     public void iShouldSeeAsResultHeader(String expectedResult) { assertEqualGetText("//span[.='Macbook']",expectedResult); }
 
+    @And("I enter {string}")
+    public void iEnter(String productName) {
+        Electron.sendKeysToSearchBarUsingOutline(productName);   }
+
+    @And("I should see {string} as our result header")
+    public void iShouldSeeAsOurResultHeader(String expectedHeader) throws InterruptedException {
+        Electron.verifyOutlineSearchHeader(expectedHeader);
+    }
+
+    @And("I click on Submit Search button")
+    public void iClickOnSubmitSearchButton() {
+        Electron.selectSubmitSearchButton();
+    }
+
+    @And("I switch to window")
+    public void iSwitchToWindow() {
+        switchWindows();
+    }
 }
+

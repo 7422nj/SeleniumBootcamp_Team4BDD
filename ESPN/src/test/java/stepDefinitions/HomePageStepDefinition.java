@@ -25,7 +25,7 @@ public class HomePageStepDefinition  extends WebAPI {
         if (scenario.isFailed()){
             // Take a screenshot
             final byte[] screenShot= ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
-            scenario.attach(screenShot,"image/png","TMobile");  // embed it in the report
+            scenario.attach(screenShot,"image/png","ESPN");  // embed it in the report
         }
     }
 

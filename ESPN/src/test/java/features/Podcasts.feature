@@ -2,7 +2,7 @@ Feature: ESPN Podcast
 
 #  Background: common steps by sync way will work with your Scenario
   Background:
-    Given I am ESPN Podcasts Page
+    Given I am on ESPN Podcasts Page
 
   @burger
   Scenario: Find Mel's Mock 4.0 & Todd's All-Satellite Team Podcast
@@ -52,9 +52,37 @@ Feature: ESPN Podcast
     But I should not see "Bootcamp404" as Daily Wager header
     Then I should see "Daily Wager Show - PodCenter - ESPN Radio" as page title
 
+  @burger
+  Scenario: Find The ESPN Investigates Podcast Page
+    When I scroll to The ESPN Investigates Podcast Page
+    And I click on The ESPN Investigates Podcast Page
+    And I should see "ESPN Investigates" as Investigates header
+    But I should not see "Bootcamp404" as Investigates header
+    Then I should see "ESPN Investigates Show - PodCenter - ESPN Radio" as page title
+
+  @burger
+  Scenario: Download Getting The Team Back Podcast recent podcast
+    When I scroll to Getting The Team Back Podcast
+    And I hover over download link
+    And I click on download link
+    And I click on audio play button
+    Then I should see audio box is "true" displayed
+
+  @burger
+  Scenario Outline: User should be able to enter words into search bar
+    When I click on search button
+    And I enter "<searchPodcasts>" into search field
+    And I should see "<expectedValue>" written in search field
+    But I should not see "<notExpectedValue>" written in search field
+    Then I should see "<expectedTitle>" as page title
 
 
-
+    Examples:
+      | searchPodcasts    | expectedValue     | notExpectedValue | expectedTitle                                  |
+      | Daily Wager       | Daily Wager       | Bootcamp404      | Sports Podcasts - Podcenter - ESPNRadio - ESPN |
+      | ESPN Investigates | ESPN Investigates | Bootcamp404      | Sports Podcasts - Podcenter - ESPNRadio - ESPN |
+      | 30 for 30         | 30 for 30         | Bootcamp404      | Sports Podcasts - Podcenter - ESPNRadio - ESPN |
+      | SVPod             | SVPod             | Bootcamp404      | Sports Podcasts - Podcenter - ESPNRadio - ESPN |
 
 
 

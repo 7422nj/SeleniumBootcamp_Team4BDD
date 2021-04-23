@@ -43,6 +43,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class WebAPI {
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //Robot available for all helper methods -> will not throw exceptions anymore
@@ -66,6 +67,8 @@ public class WebAPI {
             e.printStackTrace();
         }
     }
+
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //ExtentReport
@@ -264,9 +267,14 @@ public class WebAPI {
 
     public void typeOnElement(String locator, String value) {
         try {
-            driver.findElement(By.cssSelector(locator)).sendKeys(value);
-        } catch (Exception ex) {
             driver.findElement(By.xpath(locator)).sendKeys(value);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            try {
+                driver.findElement(By.cssSelector(locator)).sendKeys(value);
+            } catch (Exception e){
+                e.printStackTrace();
+            }
         }
     }
 
@@ -914,12 +922,13 @@ public class WebAPI {
         js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
 
     }
+
     public static void scrollToTopOfPage() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         //This will scroll the web page till top.
         js.executeScript("window.scrollTo(document.body.scrollHeight, 0)");
 
-}
+    }
 
     public static void WebDriverWaitUntilVisibility(int seconds, WebElement element) {
         WebDriverWait wait = new WebDriverWait(driver, seconds);
@@ -1414,13 +1423,14 @@ public class WebAPI {
             softAssert.assertAll();
         }
     }
-    public static void softAssertAssertEqualsGetTitle(String expected){
+
+    public static void softAssertAssertEqualsGetTitle(String expected) {
         String exp = expected;
         String act = driver.getTitle();
-        softAssert.assertEquals(act,exp);
+        softAssert.assertEquals(act, exp);
         softAssert.assertAll();
 
-}
+    }
 
     public void refresh() throws AWTException, InterruptedException {
         robot.keyPress(KeyEvent.VK_F5);
@@ -1449,66 +1459,201 @@ public class WebAPI {
 
     }
 
-    public static void createAlert(String note){
-        JavascriptExecutor js=(JavascriptExecutor)driver;
+    public static void createAlert(String note) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript(note); // -> ("alert('enter here'));"
     }
 
-    public void waitUntilTextIsLocated(String main, String text, long seconds){
-        WebDriverWait wait = new WebDriverWait(driver,seconds);
+    public void waitUntilTextIsLocated(String main, String text, long seconds) {
+        WebDriverWait wait = new WebDriverWait(driver, seconds);
         wait.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath(main), text));
     }
 
-    public static void scrollToElementUsingActions(WebElement ele){
+    public static void scrollToElementUsingActions(WebElement ele) {
         Actions action = new Actions(driver);
-        action.keyDown(ele,Keys.CONTROL).build().perform();
+        action.keyDown(ele, Keys.CONTROL).build().perform();
     }
 
-    public static void scrollNClickElementUsingActions(WebElement ele){
+    public static void scrollNClickElementUsingActions(WebElement ele) {
         Actions action = new Actions(driver);
-        action.keyDown(ele,Keys.CONTROL).perform();
+        action.keyDown(ele, Keys.CONTROL).perform();
     }
 
-    public static void robotScrollUp(int scrolls){
-        for (int i =0; i < scrolls; i++)
-        robot.keyPress(KeyEvent.VK_PAGE_UP);
+    public static void robotScrollUp(int scrolls) {
+        for (int i = 0; i < scrolls; i++)
+            robot.keyPress(KeyEvent.VK_PAGE_UP);
         robot.keyRelease(KeyEvent.VK_PAGE_UP);
     }
 
-    public void clickByXNCssUsingActions(String locator){
+    public void clickByXNCssUsingActions(String locator) {
         try {
             Actions act = new Actions(driver);
             WebElement element = driver.findElement(By.xpath(locator));
             act.click(element).build().perform();
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             try {
                 Actions act = new Actions(driver);
                 WebElement element = driver.findElement(By.cssSelector(locator));
                 act.click(element).build().perform();
-            } catch (Exception e1){
+            } catch (Exception e1) {
                 e1.printStackTrace();
             }
         }
 
     }
 
-    public void softAssertAssertNotEqualsGetText(String exp,String act){
+    public void softAssertAssertNotEqualsGetText(String exp, String act) {
         try {
             String expected = exp;
             String actual = driver.findElement(By.xpath(act)).getText();
             softAssert.assertNotEquals(actual, expected, "\n*** Test Failed - Try Again ***");
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             try {
                 String expected = exp;
                 String actual = driver.findElement(By.cssSelector(act)).getText();
                 softAssert.assertNotEquals(actual, expected, "\n*** Test Failed - Try Again ***");
-            } catch (Exception e1){
+            } catch (Exception e1) {
                 e1.printStackTrace();
             }
         }
     }
+
+    public void waitForVisibilityOfElement(WebElement ele) {
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        wait.until(ExpectedConditions.visibilityOf(ele));
+    }
+
+
+    /**
+     * Assertions Helper Methods
+     * @param element
+     * @return
+     */
+
+    public String getTextFromElement(String element) {
+        String elementText = "";
+
+        try {
+            elementText = driver.findElement(By.xpath(element)).getText();
+            return elementText;
+        } catch (StaleElementReferenceException staleElementReferenceException) {
+            staleElementReferenceException.printStackTrace();
+            System.out.println("ELEMENT IS STALE");
+        } catch (ElementNotVisibleException elementNotVisibleException) {
+            elementNotVisibleException.printStackTrace();
+            System.out.println("ELEMENT IS NOT VISIBLE IN THE DOM");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("UNABLE TO GET TEXT FROM WEB ELEMENT");
+        }
+
+        return elementText;
+    }
+
+    public String getAttributeFromElement(String element, String attribute) {
+        String elementText = "";
+
+        try {
+            elementText = driver.findElement(By.xpath(element)).getAttribute(attribute);
+            return elementText;
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("UNABLE TO GET ATTRIBUTE FROM WEB ELEMENT");
+        }
+
+        return elementText;
+    }
+
+    public boolean compareStrings(String str1, String str2) {
+        boolean flag = false;
+
+        if (str1.toLowerCase().equals(str2)) {
+            flag = true;
+            return flag;
+        }
+
+        return flag;
+    }
+
+    public boolean isElementDisplayed(String element) {
+        boolean flag = false;
+
+        if (driver.findElement(By.xpath(element)).isDisplayed()) {
+            flag = true;
+            return flag;
+        }
+        return flag;
+    }
+
+    public boolean isTitleTrue(String title) {
+        boolean flag = false;
+
+        if (driver.getTitle().equals(title)){
+            flag = true;
+            return flag;
+        }
+        return flag;
+    }
+
+    public boolean isElementSelected(String element) {
+        boolean flag = false;
+
+        if (driver.findElement(By.xpath(element)).isSelected()) {
+            flag = true;
+            return flag;
+        }
+        return flag;
+    }
+
+    public boolean isElementEnabled(String element) {
+        boolean flag = false;
+
+        if (driver.findElement(By.xpath(element)).isEnabled()) {
+            flag = true;
+            return flag;
+        }
+        return flag;
+    }
+
+    public boolean isCurrentUrlTrue(String Url) {
+        boolean flag = false;
+
+        try {
+            Url = driver.getCurrentUrl();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("UNABLE TO GET TITLE FROM PAGE");
+        }
+        if (Url != null)
+            flag = true;
+        else
+            return flag;
+
+        return flag;
+    }
+
+    public String getTitleText(String title) {
+        String elementText = "";
+
+        try {
+            elementText = driver.getTitle();
+            if(elementText.equals(title))
+                return elementText;
+        } catch (StaleElementReferenceException staleElementReferenceException) {
+            staleElementReferenceException.printStackTrace();
+            System.out.println("ELEMENT IS STALE");
+        } catch (ElementNotVisibleException elementNotVisibleException) {
+            elementNotVisibleException.printStackTrace();
+            System.out.println("ELEMENT IS NOT VISIBLE IN THE DOM");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("UNABLE TO GET TEXT FROM WEB ELEMENT");
+        }
+
+        return elementText;
+    }
+
+
 }
-
-

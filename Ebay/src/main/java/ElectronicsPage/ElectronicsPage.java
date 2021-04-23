@@ -18,7 +18,7 @@ import static ElectronicsPage.ElectronicsLocators.*;
 public class ElectronicsPage extends WebAPI {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public ElectronicsPage() { PageFactory.initElements(driver,this); }
+    public  ElectronicsPage() { PageFactory.initElements(driver,this); }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //Robot Available for All Below Methods
@@ -33,14 +33,14 @@ public class ElectronicsPage extends WebAPI {
     }
 
     //JavaScriptExecutor available for all below methods
-    JavascriptExecutor js;
-
-    {
-        try {
-            js = (JavascriptExecutor) driver;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//    JavascriptExecutor js;
+//
+//    {
+//        try {
+//            js = (JavascriptExecutor) driver;
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
 //        //Actions available for all below methods
 //        Actions actions;
@@ -53,7 +53,7 @@ public class ElectronicsPage extends WebAPI {
 //            }
 //        }
 //    }
-    }
+
 
     //////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -151,6 +151,41 @@ public class ElectronicsPage extends WebAPI {
         find(WEB_ELEMENT_SELECT_DROP_DOWN);
         clickByXNCssUsingJavaScript(WEB_ELEMENT_SELECT_DROP_DOWN);
     }
+
+    /**
+     * Search functionality #10
+     */
+
+    public void sendKeysToSearchBarUsingOutline(String productName){
+        typeOnElement(WEB_ELEMENT_SEARCH_LOCATOR,productName); }
+
+    public void selectSubmitSearchButton(){
+        clickByXNCssUsingJavaScript(WEB_ELEMENT_BUTTON_SEARCH);
+    }
+
+    public void verifyOutlineSearchHeader(String expectedHeader) throws InterruptedException {
+        assertEqualsGetAttribute(expectedHeader,WEB_ELEMENT_SEARCH_LOCATOR,"value");
+    }
+
+//        if (true) {
+//            driver.findElement(By.xpath("//span[.='Macbook']")).getText();
+//            implicitWait(15);
+//            {
+//                while (true) {//call
+//                    driver.findElement(By.xpath("//span[.='Airpods']")).getText();
+//                    implicitWait(15);
+//                    {
+//                        if (false) {
+//                            continue;
+//                        }//mac
+//                        driver.findElement(By.xpath("//span[.='iPhone']")).getText();
+//                        implicitWait(15);
+//                        break;
+//                    }
+//                }
+//            }
+//        }
+//    }
     //////////////////////////////////////////////////////////////////////////////////////////////////
 
     /*

@@ -4,6 +4,7 @@ import HelpNFaqsPage.MacysDataDriver.DataSource;
 import common.WebAPI;
 import org.apache.xmlbeans.impl.xb.xsdschema.ListDocument;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import java.awt.*;
 import java.util.List;
@@ -125,6 +126,22 @@ public class HelpNFaqsPage extends WebAPI {
 
     public void verifyPageTitle(String expected){
         softAssertAssertEqualsGetTitle(expected);
+    }
+
+    /**
+     * Scenario #9
+     */
+
+    public void sendKeysEmailSignIn(String emailAddress){
+        typeOnElement(WEB_ELEMENT_INPUT_EMAIL,emailAddress);
+    }
+
+    public void sendKeysPasswordSignIn(String Password){
+        typeOnElement(WEB_ELEMENT_INPUT_PASSWORD,Password);
+    }
+
+    public void verifyNotAccessDeniedHeader(String expected){
+        Assert.assertNotEquals(getTextFromElement(WEB_ELEMENT_VERIFY_ACCESS_DENIED),expected);
     }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////

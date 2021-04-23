@@ -9,6 +9,11 @@ public class HomePageWebElement {
     public static final String familyWhereLocator="//h3[.='T-Mobile FamilyWhere app']";
     public static final String searchTextLocator="//h2[.='T-Mobile FamilyWhere app']";
 
+    //Send Keys to Search Field
+    public static final String WEB_ELEMENT_SEARCH_LINK = "//div[@class='search-icon-glass']";
+    public static final String WEB_ELEMENT_SEARCH_FIELD = "//input[@id='searchInput']";
+    public static final String WEB_ELEMENT_IFRAME = "//iframe[@src='javascript:void(0)']";
+
 
 
 

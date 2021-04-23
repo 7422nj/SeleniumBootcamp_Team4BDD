@@ -3,36 +3,28 @@ Feature: Electronics Page Search Box Functionalities
   #Background: common steps by sync way will work with your scenario
   Background:
     Given I am on ebay electronic page
+    When I hover over search field
+    And I click on click on Search field
 
   @burger
   Scenario: Search box is displayed
-    When I hover over search field
-    And I click on click on Search field
     Then I verify "true" search box is displayed
 
   @burger
   Scenario: Search box is enabled
-    When I hover over search field
-    And I click on click on Search field
     Then I verify "true" search box is enabled
 
   @burger
   Scenario: Search box is not selected
-    When I hover over search field
-    And I click on click on Search field
     Then I verify "false" search box is not selected
 
   @burger
   Scenario: Type macbook into search field
-    When I hover over search field
-    And I click on click on Search field
     And I enter Macbook into Search field
     Then I should see "Macbook" is written
 
   @burger
   Scenario: Type and search Macbook in search field
-    When I hover over search field
-    And I click on click on Search field
     And I enter Macbook into Search field
     And I should see "Macbook" is written
     And I click on Search button
@@ -40,16 +32,12 @@ Feature: Electronics Page Search Box Functionalities
 
   @pizza
   Scenario: Search laptop using MYSQLDB
-    When I hover over search field
-    And I click on click on Search field
     And I enter Laptop into search box
     And I should see "Laptop" is written
     Then I verify "Laptop | eBay" as page title
 
   @pizza
   Scenario: Search laptop using MYSQLDB then clear search
-    When I hover over search field
-    And I click on click on Search field
     And I enter Laptop into search box
     And I should see "Laptop" is written
     And I clear text in search field
@@ -64,6 +52,20 @@ Feature: Electronics Page Search Box Functionalities
     And I should see "Macbook" is written
     And I click on Search button
     Then I should see "Macbook" as result header
+
+  Scenario Outline: User should be able to search multiple items & see results
+    When I click on click on Search field
+    And I switch to window
+    And I enter "<productName>"
+    And I click on Submit Search button
+    And I should see "<expectedHeader>" as our result header
+
+    Examples:
+      | productName | expectedHeader  |
+      | Macbook     | Macbook         |
+      | Airpods     | Airpods         |
+      | iPhone      | iPhone          |
+
 
 
 
