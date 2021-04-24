@@ -14,6 +14,10 @@ public class HomePageWebElement {
     public static final String WEB_ELEMENT_SEARCH_FIELD = "//input[@id='searchInput']";
     public static final String WEB_ELEMENT_IFRAME = "//iframe[@src='javascript:void(0)']";
 
+    //Review important cvoid info & return to home tab
+    public static final String WEB_ELEMENT_BUTTON_MORE = "//a[@href='https://covid19.honda.com/']//span[@class='alert-cta']";
+    public static final String WEB_ELEMENT_SCROLL_TO_INFO = "//strong[.='About American Honda']";
+
 
 
 

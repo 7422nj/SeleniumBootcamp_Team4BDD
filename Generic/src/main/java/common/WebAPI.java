@@ -847,43 +847,27 @@ public class WebAPI {
 
         if (i <= 4) {
             robot.keyPress(KeyEvent.VK_DOWN);
-            sleepFor(1);
             robot.keyPress(KeyEvent.VK_DOWN);
-            sleepFor(1);
             robot.keyPress(KeyEvent.VK_DOWN);
             System.out.println("\n*** Scrolled Down Page x3 ***");
         } else if (i <= 6) {
             robot.keyPress(KeyEvent.VK_DOWN);
-            sleepFor(1);
             robot.keyPress(KeyEvent.VK_DOWN);
-            sleepFor(1);
             robot.keyPress(KeyEvent.VK_DOWN);
-            sleepFor(1);
             robot.keyPress(KeyEvent.VK_DOWN);
-            sleepFor(1);
             robot.keyPress(KeyEvent.VK_DOWN);
-            sleepFor(1);
             robot.keyPress(KeyEvent.VK_DOWN);
             System.out.println("\n*** Scrolled Down Page x6 ***");
         } else if (i <= 10) {
             robot.keyPress(KeyEvent.VK_DOWN);
-            sleepFor(1);
             robot.keyPress(KeyEvent.VK_DOWN);
-            sleepFor(1);
             robot.keyPress(KeyEvent.VK_DOWN);
-            sleepFor(1);
             robot.keyPress(KeyEvent.VK_DOWN);
-            sleepFor(1);
             robot.keyPress(KeyEvent.VK_DOWN);
-            sleepFor(1);
             robot.keyPress(KeyEvent.VK_DOWN);
-            sleepFor(1);
             robot.keyPress(KeyEvent.VK_DOWN);
-            sleepFor(1);
             robot.keyPress(KeyEvent.VK_DOWN);
-            sleepFor(1);
             robot.keyPress(KeyEvent.VK_DOWN);
-            sleepFor(1);
             robot.keyPress(KeyEvent.VK_DOWN);
             System.out.println("\n*** Scrolled Down Page x10 ***");
         } else {
@@ -1620,17 +1604,10 @@ public class WebAPI {
     public boolean isCurrentUrlTrue(String Url) {
         boolean flag = false;
 
-        try {
-            Url = driver.getCurrentUrl();
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("UNABLE TO GET TITLE FROM PAGE");
-        }
-        if (Url != null)
+        if (driver.getCurrentUrl().equals(Url)){
             flag = true;
-        else
-            return flag;
-
+        return flag;
+    }
         return flag;
     }
 

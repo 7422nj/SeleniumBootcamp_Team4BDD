@@ -10,10 +10,10 @@ import org.openqa.selenium.support.PageFactory;
 
 import static homepage.HomePageWebElement.*;
 
-public class HomePage extends WebAPI {
+public class HondaPage extends WebAPI {
 
     /////////////////////////////////////////////////////////////////
-    public HomePage(){ PageFactory.initElements(driver,this); }
+    public HondaPage(){ PageFactory.initElements(driver,this); }
     ////////////////////////////////////////////////////////////////
 
 
@@ -68,5 +68,28 @@ public class HomePage extends WebAPI {
         Assert.assertNotEquals(getAttributeFromElement(WEB_ELEMENT_SEARCH_FIELD,"value"),expectedValue);
     }
 
+    /**
+     * Scenario #3
+     */
+
+    public void selectButtonMoreInfo(){
+        clickByXNCssUsingJavaScript(WEB_ELEMENT_BUTTON_MORE);
+    }
+
+    public void scrollToElementCovidInfo() throws InterruptedException {
+        robotScrollDown(6);
+    }
+
+    public void switchTabsFromCovidInfoToHomeTab(){
+        switchTabToDefault();
+    }
+
+    public void verifyUrlIsCorrectHondaMain(String url){
+        Assert.assertTrue(isCurrentUrlTrue(url));
+    }
+
+    public void verifyUrlIsNotCorrectHondaMain(String url){
+        Assert.assertFalse(isCurrentUrlTrue(url));
+    }
 
 }

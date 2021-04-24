@@ -14,6 +14,7 @@
         <module name="Generic" />
         <module name="Airbnb" />
         <module name="ESPN" />
+        <module name="BMW" />
         <module name="Chase" />
         <module name="Redfin" />
         <module name="Ebay" />
