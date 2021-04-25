@@ -19,15 +19,6 @@ public class SearchBarStepDefinitions extends WebAPI {
     public static HelpNFaqsPage help = new HelpNFaqsPage();
     ////////////////////////////////////////////////////////////////////////////////////////////
 
-    // Cucumber Hook
-    @AfterStep
-    public void tearDown(Scenario scenario) {
-        if (scenario.isFailed()) {
-            final byte[] screenShot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-            scenario.attach(screenShot, "image/png", "Macys");  // embed it in the report
-        }
-    }
-
     @Given("I am on Macys Help & Faqs Main Page")
     public void iamonMacysHelpFaqsMainPage() throws IOException { openBrowser("https://www.customerservice-macys.com/app?cm_sp=navigation-_-bottom_nav-_-help_%26_faqs&lid=glbbtmnav_help_%26_faqs-us");
     }
