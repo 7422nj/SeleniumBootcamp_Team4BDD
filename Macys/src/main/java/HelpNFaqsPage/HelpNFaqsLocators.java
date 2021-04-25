@@ -46,6 +46,15 @@ public class HelpNFaqsLocators {
   //Send invalid keys and search for results
   public static final String WEB_ELEMENT_NO_RESULTS_HEADER = "//div[@class='still-looking-for-help']";
 
+  //Track orders
+  public static final String WEB_ELEMENT_LINK_SHIPPING = "//li[@id='itemShipping']";
+  public static final String WEB_ELEMENT_LINK_TRACK_ORDERS = "//a[.='Track my order']";
+  public static final String WEB_ELEMENT_BOX_SHIPPING = "//div[@id='shipping']";
+  public static final String WEB_ELEMENT_INPUT_ITEM_ID = "//input[@id='js-order-no']";
+  public static final String WEB_ELEMENT_INPUT_EMAIL_FIELD = "//input[@id='js-order-email']";
+  public static final String WEB_ELEMENT_BUTTON_GET_DETAILS = "//button[@id='js-lookup-btn']";
+  public static final String WEB_ELEMENT_VERIFY_ERROR_HEADER = "//div[@id='js-server-error']";
+
 
 
 

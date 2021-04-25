@@ -3,6 +3,8 @@ package HelpNFaqsPage;
 import HelpNFaqsPage.MacysDataDriver.DataSource;
 import common.WebAPI;
 import org.apache.xmlbeans.impl.xb.xsdschema.ListDocument;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
@@ -186,6 +188,55 @@ public class HelpNFaqsPage extends WebAPI {
     public void verifyNoResultsHeader(String expected){ softAssertAssertEqualsGetText(WEB_ELEMENT_NO_RESULTS_HEADER,expected); }
 
 
+    /**
+     * Scenario #4
+     */
+
+    public void sendKeysToSearchFieldUsingTable(String Keys) {
+        typeOnElement(WEB_ELEMENT_SEARCH_BAR,Keys);
+    }
+
+    public void verifyValueOfWrittenSearches(String Keys){
+        Assert.assertEquals(getAttributeFromElement(WEB_ELEMENT_SEARCH_BAR,"value"),Keys);
+    }
+
+    public void verifyNotValueWrittenSearches(String Keys){
+        Assert.assertNotEquals(getAttributeFromElement(WEB_ELEMENT_SEARCH_BAR,"value"),Keys);
+    }
+
+    /**
+     * Scenario #5
+     */
+
+    public void scrollToShippingNDelivery(){
+        scrollToElementUsingJavaScript(WEB_ELEMENT_LINK_SHIPPING);
+    }
+
+    public void hoverOverShipping(){
+        basicHoverUsingXpath(WEB_ELEMENT_BOX_SHIPPING);
+    }
+
+    public void hoverOverTrackMyOrderNClick(){
+        hoverOverNClickUsingXpath(WEB_ELEMENT_LINK_TRACK_ORDERS,WEB_ELEMENT_LINK_TRACK_ORDERS);
+    }
+
+    public void sendKeysItemIDCode() throws Exception{
+        DataSource.insertDataIntoDB();
+        List<String> itemCode = DataSource.getItemsListFromDB();
+        String code = itemCode.get(7);
+        typeOnElement(WEB_ELEMENT_INPUT_ITEM_ID,code);
+        waitTimeExplicit(WEB_ELEMENT_INPUT_EMAIL_FIELD);
+        String email = itemCode.get(0);
+        typeOnElement(WEB_ELEMENT_INPUT_EMAIL_FIELD,email);
+    }
+
+    public void selectButtonGetMoreDetails() {
+        clickByXNCssUsingJavaScript(WEB_ELEMENT_BUTTON_GET_DETAILS);
+    }
+
+    public void verifyErrorMessageHeaderTrackOrder(String expectedErrorMessage){
+        Assert.assertEquals(getTextFromElement(WEB_ELEMENT_VERIFY_ERROR_HEADER),expectedErrorMessage);
+    }
 
 
 

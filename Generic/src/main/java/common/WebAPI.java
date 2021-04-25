@@ -1056,7 +1056,7 @@ public class WebAPI {
         actions.moveToElement(mainMenu).build().perform();
         WebElement subMenu = driver.findElement(By.xpath(sub));
         actions.moveToElement(subMenu);
-        actions.click().build().perform();
+        actions.click().perform();
     }
 
     public static void dragAndDropUsingActions(String drag, String drop) {
