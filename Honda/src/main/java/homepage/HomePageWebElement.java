@@ -18,6 +18,10 @@ public class HomePageWebElement {
     public static final String WEB_ELEMENT_BUTTON_MORE = "//a[@href='https://covid19.honda.com/']//span[@class='alert-cta']";
     public static final String WEB_ELEMENT_SCROLL_TO_INFO = "//strong[.='About American Honda']";
 
+    //Select Engine Filter using Table
+    public static final String WEB_ELEMENT_BUTTON_MENU = "//span[@class='menu-label']";
+    public static String getMenuOptions(String menu){ return "//a[.='"+menu+"']";}
+    public static String getUrlIsTrue(String url){ return "https://"+url+".com/ ";}
 
 
 

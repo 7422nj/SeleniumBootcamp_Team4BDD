@@ -85,6 +85,17 @@ public class HomePageStepDefinition  extends WebAPI {
 
     /**
      * Scenario #3
+     * @param dataTable
+     */
+    @And("I enter key into search field without header")
+    public void iEnterKeyIntoSearchFieldWithoutHeader(DataTable dataTable) {
+        List<List<String>> data = dataTable.asLists(String.class);
+        String keyword = data.get(0).get(0);
+        home.sendKeysToSearchFieldUsingTableWHeader(keyword);
+    }
+
+    /**
+     * Scenario #4
      */
 
     @When("I click on read more button")
@@ -110,6 +121,45 @@ public class HomePageStepDefinition  extends WebAPI {
     @But("I should not see {string} as homepage url")
     public void iShouldNotSeeAsHomepageUrl(String notExpectedUrl) {
         home.verifyUrlIsNotCorrectHondaMain(notExpectedUrl);
+    }
+
+    /**
+     * Scenario #5
+     */
+
+    @When("I click on menu button")
+    public void iClickOnMenuButton() {
+        home.selectMenuButton();
+    }
+
+    @And("I select {string} from the menu")
+    public void iSelectFromTheMenu(String keys) throws InterruptedException {
+        home.selectOptionsFromMenuUsingTable(keys);
+    }
+
+    @And("I should see {string} as current url")
+    public void iShouldSeeAsCurrentUrl(String keys) {
+        home.verifyCurrentUrlIsCorrectMenu(keys);
+    }
+
+    @But("I should not see {string} as current url")
+    public void iShouldNotSeeAsCurrentUrl(String keys) {
+        home.verifyNotCurrentUrlMenu(keys);
+    }
+
+    @Then("I should see {string} for current page url")
+    public void iShouldSeeForCurrentPageTitle(String keys) {
+        home.verifyCurrentUrlIsCorrect(keys);
+    }
+
+    @And("I scroll down page to view details")
+    public void iScrollDownPageToViewDetails() throws InterruptedException {
+        home.scrollToPosition();
+    }
+
+    @And("I switch tab back to Honda homepage")
+    public void iSwitchTabBackToHondaHomepage() {
+        home.switchTabToMainHondaPage();
     }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 

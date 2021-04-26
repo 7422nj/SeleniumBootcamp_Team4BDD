@@ -823,6 +823,42 @@ public class WebAPI {
         return url;
     }
 
+    public void selectOptionByIndex(String dropdown, int index) {
+        WebElement  dropDown = driver.findElement(By.xpath(dropdown));
+        Select select = new Select(dropDown);
+
+        try {
+            select.selectByIndex(index);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("UNABLE TO SELECT OPTION " + index + " FROM DROPDOWN");
+        }
+    }
+
+    public void selectOptionByVisibleText(String dropdown, String visibleText) {
+        WebElement  dropDown = driver.findElement(By.xpath(dropdown));
+        Select select = new Select(dropDown);
+
+        try {
+            select.selectByVisibleText(visibleText);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("UNABLE TO SELECT OPTION (" + visibleText + ") FROM DROPDOWN");
+        }
+    }
+
+    public void selectOptionByValue(String dropdown, String value) {
+        WebElement  dropDown = driver.findElement(By.xpath(dropdown));
+        Select select = new Select(dropDown);
+
+        try {
+            select.selectByValue(value);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("UNABLE TO SELECT OPTION FROM DROPDOWN BY VALUE: " + value);
+        }
+    }
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public static void readNSend(String pathName, int index) throws IOException {
@@ -1348,6 +1384,17 @@ public class WebAPI {
         }
     }
 
+    public void switchToNewTab(int tabIndexToSwitchTo) {
+
+        List<String> tabs = new ArrayList<> (driver.getWindowHandles());
+
+        try {
+            driver.switchTo().window(tabs.get(tabIndexToSwitchTo));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void sliderBarAction(WebElement slider) {
         Actions actions = new Actions(driver);
         actions.clickAndHold(slider);
@@ -1522,12 +1569,6 @@ public class WebAPI {
         try {
             elementText = driver.findElement(By.xpath(element)).getText();
             return elementText;
-        } catch (StaleElementReferenceException staleElementReferenceException) {
-            staleElementReferenceException.printStackTrace();
-            System.out.println("ELEMENT IS STALE");
-        } catch (ElementNotVisibleException elementNotVisibleException) {
-            elementNotVisibleException.printStackTrace();
-            System.out.println("ELEMENT IS NOT VISIBLE IN THE DOM");
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("UNABLE TO GET TEXT FROM WEB ELEMENT");
@@ -1606,7 +1647,7 @@ public class WebAPI {
 
         if (driver.getCurrentUrl().equals(Url)){
             flag = true;
-        return flag;
+             return flag;
     }
         return flag;
     }
@@ -1618,12 +1659,6 @@ public class WebAPI {
             elementText = driver.getTitle();
             if(elementText.equals(title))
                 return elementText;
-        } catch (StaleElementReferenceException staleElementReferenceException) {
-            staleElementReferenceException.printStackTrace();
-            System.out.println("ELEMENT IS STALE");
-        } catch (ElementNotVisibleException elementNotVisibleException) {
-            elementNotVisibleException.printStackTrace();
-            System.out.println("ELEMENT IS NOT VISIBLE IN THE DOM");
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("UNABLE TO GET TEXT FROM WEB ELEMENT");
