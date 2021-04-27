@@ -65,6 +65,7 @@ Feature: Electronics Page Search Box Functionalities
       | Macbook     | Macbook         |
       | Airpods     | Airpods         |
       | iPhone      | iPhone          |
+      | Keyboard    | Keyboard        |
 
 
 

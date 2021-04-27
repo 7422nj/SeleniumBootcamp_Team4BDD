@@ -1645,11 +1645,12 @@ public class WebAPI {
     public boolean isCurrentUrlTrue(String Url) {
         boolean flag = false;
 
-        if (driver.getCurrentUrl().equals(Url)){
+        if (driver.getCurrentUrl().equalsIgnoreCase(Url)) {
             flag = true;
-             return flag;
-    }
-        return flag;
+            return flag;
+        } else {
+            return flag;
+        }
     }
 
     public String getTitleText(String title) {

@@ -22,16 +22,8 @@ public class PodcastStepDefinition extends WebAPI {
 
     ///////////////////////////////////////////////////
     public static PodcastPage pod = new PodcastPage();
-    //////////////////////////////////////////////////
+    ///////////////////////////////////////////////////
 
-    // Cucumber Hook
-    @AfterStep
-    public void tearDown(Scenario scenario){
-        if (scenario.isFailed()){
-            final byte[] screenShot= ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
-            scenario.attach(screenShot,"image/png","ESPN");  // embed it in the report
-        }
-    }
     @Given("I am on ESPN Podcasts Page")
     public void iAmESPNPodcastsPage() {
         try {
@@ -40,8 +32,7 @@ public class PodcastStepDefinition extends WebAPI {
             e.printStackTrace();
         }
     }
-    @After
-    public void closeBrowser(){
+    @After public void closeBrowser(){
         cleanUp();
     }
     ///////////////////////////////////////////////////////////////////////////////////////////////////
