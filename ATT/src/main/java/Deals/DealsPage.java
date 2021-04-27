@@ -1,16 +1,12 @@
-package Toys;
+package Deals;
 
 import common.WebAPI;
-import io.cucumber.java.bs.A;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import static Deals.DealsPageWebElement.*;
+public class DealsPage extends WebAPI {
 
-import java.sql.Driver;
-
-import static Toys.ToysPageWebElement.*;
-
-public class ToysPage extends WebAPI {
-    public ToysPage() { PageFactory.initElements(driver,this);
+    public DealsPage() { PageFactory.initElements(driver,this);
     }
 
     public void selectSearchField(){
@@ -30,8 +26,6 @@ public class ToysPage extends WebAPI {
     public void verifyPageUrl(String Url){
         Assert.assertTrue(isCurrentUrlTrue(Url));
     }
-
-
 
 
 
