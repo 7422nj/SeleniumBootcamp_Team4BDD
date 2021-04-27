@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         // For single feature file
-        // features = {"src/test/java/features/HomePage.feature"}
+        // features = {"src/test/java/features/Electronics.feature"}
         features = {"src/test/java/features"},
         // the path of the step definition files
         //  glue = "src/test/java/stepDefinitions",
@@ -24,7 +24,7 @@ import org.junit.runner.RunWith;
         // to check the mapping is proper between feature file and step definition file
         dryRun = false,
         publish = true,
-        tags = "(@smokeTest, @Pritam) and (not @pending)"
+        tags = "(@smokeTest, @pizza) and (not @pending, @burger)"
 //         tags = "(@smokeTest or @RegressionTest or @IntegrationTest ) and (not @pending)"
 
 

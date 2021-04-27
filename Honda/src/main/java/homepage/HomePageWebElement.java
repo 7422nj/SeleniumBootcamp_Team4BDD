@@ -1,0 +1,31 @@
+package homepage;
+
+public class HomePageWebElement {
+    // WebElement class for Locators only and some other properties
+
+    public static final String searchButton1Locator="//span[@class='d-inline show-on-sm-modal ng-star-inserted']";
+    public static final String searchBoxLocator="nav_search_input-desktop";
+    public static final String searchButtonLocator="[role='img']";
+    public static final String familyWhereLocator="//h3[.='T-Mobile FamilyWhere app']";
+    public static final String searchTextLocator="//h2[.='T-Mobile FamilyWhere app']";
+
+    //Send Keys to Search Field
+    public static final String WEB_ELEMENT_SEARCH_LINK = "//div[@class='search-icon-glass']";
+    public static final String WEB_ELEMENT_SEARCH_FIELD = "//input[@id='searchInput']";
+    public static final String WEB_ELEMENT_IFRAME = "//iframe[@src='javascript:void(0)']";
+
+    //Review important cvoid info & return to home tab
+    public static final String WEB_ELEMENT_BUTTON_MORE = "//a[@href='https://covid19.honda.com/']//span[@class='alert-cta']";
+    public static final String WEB_ELEMENT_SCROLL_TO_INFO = "//strong[.='About American Honda']";
+
+    //Select Engine Filter using Table
+    public static final String WEB_ELEMENT_BUTTON_MENU = "//span[@class='menu-label']";
+    public static String getMenuOptions(String menu){ return "//a[.='"+menu+"']";}
+    public static String getUrlIsTrue(String url){ return "https://"+url+".com/ ";}
+
+
+
+
+
+
+}
