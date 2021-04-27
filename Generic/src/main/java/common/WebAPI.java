@@ -1428,6 +1428,50 @@ public class WebAPI {
         WebDriverWait wait = new WebDriverWait(driver,seconds);
         wait.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath(main), text));
     }
+
+    public String getAttributeFromElement(String element, String attribute) {
+        String elementText = "";
+
+        try {
+            elementText = driver.findElement(By.xpath(element)).getAttribute(attribute);
+            return elementText;
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("UNABLE TO GET ATTRIBUTE FROM WEB ELEMENT");
+        }
+
+        return elementText;
+    }
+
+    public boolean isTitleTrue(String title) {
+        boolean flag = false;
+
+        if (driver.getTitle().equals(title)){
+            flag = true;
+            return flag;
+        }
+        return flag;
+    }
+
+    public boolean isCurrentUrlTrue(String Url) {
+        boolean flag = false;
+
+        if (driver.getCurrentUrl().equals(Url)){
+            flag = true;
+            return flag;
+        }
+        return flag;
+    }
+
+    public boolean isUrlTrue(String url){
+        boolean flag = false;
+
+        if(driver.getCurrentUrl().equals(url)){
+            flag = true;
+            return flag;
+        }
+        return flag;
+    }
 }
 
 
